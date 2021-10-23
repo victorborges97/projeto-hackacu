@@ -62,9 +62,9 @@ public class PerfilFragment extends Fragment {
         textViewTelefonePerfil = rootView.findViewById(R.id.textViewTelefonePerfil);
         textViewCidadePerfil = rootView.findViewById(R.id.textViewCidadePerfil);
         textViewEnderecoPerfil = rootView.findViewById(R.id.textViewEnderecoPerfil);
-        textViewNegocioPerfilCardView = rootView.findViewById(R.id.textViewNegocioPerfilCardView);
-        textViewRuaPerfilCardView = rootView.findViewById(R.id.textViewRuaPerfilCardView);
-        textViewTelefonePerfilCardView = rootView.findViewById(R.id.textViewTelefonePerfilCardView);
+        //textViewNegocioPerfilCardView = rootView.findViewById(R.id.textViewNegocioPerfilCardView);
+        //textViewRuaPerfilCardView = rootView.findViewById(R.id.textViewRuaPerfilCardView);
+        //extViewTelefonePerfilCardView = rootView.findViewById(R.id.textViewTelefonePerfilCardView);
         imageViewFotoPerfil = rootView.findViewById(R.id.imageViewFotoPerfil);
         imageViewNegocioPerfilCardView = rootView.findViewById(R.id.imageViewNegocioPerfilCardView);
         buttonSairPerfil = rootView.findViewById(R.id.buttonSairPerfil);
