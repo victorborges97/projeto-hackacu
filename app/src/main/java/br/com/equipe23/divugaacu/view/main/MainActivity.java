@@ -36,6 +36,9 @@ public class MainActivity extends BaseActivity {
             case R.id.action_add:
                 this.showToast("add");
                 return true;
+            case R.id.action_search:
+                this.showToast("search");
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
