@@ -29,6 +29,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         initializeComponents();
         commitFragment(new FeedFragment());
+
     }
 
     void initializeComponents() {

@@ -8,15 +8,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class BaseActivity extends AppCompatActivity {
 
-    void getNextActivity(Class activity) {
+    protected void getNextActivity(Class activity) {
         startActivity(new Intent(this, activity));
     }
 
-    void showToast(String message) {
+    protected void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-    void dialogError(String title, String text) {
+    protected void dialogError(String title, String text) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title);
         builder.setMessage(text);
@@ -24,7 +24,7 @@ public class BaseActivity extends AppCompatActivity {
         alerta.show();
     }
 
-    void dialogSuccess(String title, String text) {
+    protected void dialogSuccess(String title, String text) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title);
         builder.setMessage(text);
