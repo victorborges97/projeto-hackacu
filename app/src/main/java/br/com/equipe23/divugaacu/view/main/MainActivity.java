@@ -30,6 +30,7 @@ public class MainActivity extends BaseActivity {
         initializeComponents();
         commitFragment(new FeedFragment());
 
+        // TODO COMMIT TESTE
     }
 
     void initializeComponents() {
@@ -53,8 +54,6 @@ public class MainActivity extends BaseActivity {
                  return false;
             }
         });
-
-
     }
 
     void commitFragment(Fragment selectedFragment) {
