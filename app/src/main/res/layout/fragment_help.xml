@@ -45,45 +45,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvq1"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerPerguntas"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10sp"
-            android:onClick="expandir"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp"
-            app:contentPadding="20dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5">
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            tools:listitem="@layout/adapter_perguntas"
 
-            <LinearLayout
-                android:id="@+id/layoutTeste"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:animateLayoutChanges="true">
+            />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/questao_1"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/textDetails"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text= "@string/resposta_1"
-                    android:textSize="12sp"
-                    android:visibility="gone" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
