@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.transition.AutoTransition;
 import androidx.transition.TransitionManager;
 
-import br.com.equipe23.divugaacu.Adapter.Adapter;
 import br.com.equipe23.divugaacu.R;
+import br.com.equipe23.divugaacu.adapter.Adapter;
 
 public class HelpFragment extends Fragment {
 

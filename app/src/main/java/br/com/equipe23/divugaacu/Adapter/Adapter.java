@@ -1,4 +1,4 @@
-package br.com.equipe23.divugaacu.Adapter;
+package br.com.equipe23.divugaacu.adapter;
 
 import android.animation.LayoutTransition;
 import android.transition.AutoTransition;
@@ -31,11 +31,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.myViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
-
         holder.resumo.setText("Resumo Teste");
         holder.pergunta.setText("Titulo Teste");
-
-
     }
 
     @Override
@@ -74,7 +71,5 @@ public class Adapter extends RecyclerView.Adapter<Adapter.myViewHolder> {
             });
         }
     }
-
-
 
 }
