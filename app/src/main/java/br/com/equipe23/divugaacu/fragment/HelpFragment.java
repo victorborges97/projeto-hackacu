@@ -15,22 +15,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.transition.AutoTransition;
 import androidx.transition.TransitionManager;
 
-<<<<<<< HEAD
-=======
+
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.equipe23.divugaacu.Adapter.Adapter;
+
 import br.com.equipe23.divugaacu.Model.Perguntas;
->>>>>>> 3d78b8d3250f5403e8f8986e4b62b67ca9732939
+
 import br.com.equipe23.divugaacu.R;
 import br.com.equipe23.divugaacu.adapter.Adapter;
 
 public class HelpFragment extends Fragment {
 
-    TextView textQ1, textQ2;
-    LinearLayout layoutQ1, layoutQ2;
-    CardView cvq1, cvq2;
+
     private View rootView;
     private RecyclerView recyclerPerguntas;
     private List<Perguntas> listaPerguntas = new ArrayList<>();
