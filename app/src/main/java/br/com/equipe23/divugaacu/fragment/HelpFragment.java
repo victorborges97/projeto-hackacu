@@ -15,6 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.transition.AutoTransition;
 import androidx.transition.TransitionManager;
 
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.equipe23.divugaacu.Adapter.Adapter;
+import br.com.equipe23.divugaacu.Model.Perguntas;
+>>>>>>> 3d78b8d3250f5403e8f8986e4b62b67ca9732939
 import br.com.equipe23.divugaacu.R;
 import br.com.equipe23.divugaacu.adapter.Adapter;
 
@@ -25,6 +33,8 @@ public class HelpFragment extends Fragment {
     CardView cvq1, cvq2;
     private View rootView;
     private RecyclerView recyclerPerguntas;
+    private List<Perguntas> listaPerguntas = new ArrayList<>();
+    private Perguntas perguntas;
 
 
     public HelpFragment() {
@@ -58,8 +68,12 @@ public class HelpFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_help, container, false);
         iniciarComponentes();
 
+        //Listagem de perguntas
+        this.criarPerguntas();
+
+
         //Configurar adapter
-        Adapter adapterPerguntas = new Adapter();
+        Adapter adapterPerguntas = new Adapter(listaPerguntas);
 
         //Configurar RecyclerView
 
@@ -75,17 +89,19 @@ public class HelpFragment extends Fragment {
 
     public void iniciarComponentes() {
 
-        textQ1 = rootView.findViewById(R.id.textQ1);
-        layoutQ1 = rootView.findViewById(R.id.layoutQ1);
-
-        cvq1 = rootView.findViewById(R.id.cvq1);
-
-        textQ2 = rootView.findViewById(R.id.textQ2);
-        layoutQ2 = rootView.findViewById(R.id.layoutQ2);
-
-        cvq2 = rootView.findViewById(R.id.cvq2);
 
         recyclerPerguntas = rootView.findViewById(R.id.recyclerPerguntas);
+
+    }
+
+    public void criarPerguntas(){
+
+        perguntas = new Perguntas("Como funciona a comunicação cliente/fornecedor?", "Da forma mais simples possivel, o cliente procura o serviço que deseja e assim começa sua negociação, diretamente com o fornecedor, uma relação inter-pessoal, assim os  dois entram em acrodo e um negócio é feito");
+        this.listaPerguntas.add(perguntas);
+
+        perguntas = new Perguntas("Como funciona a comunicação cliente/fornecedor?", "Da forma mais simples possivel, o cliente procura o serviço que deseja e assim começa sua negociação, diretamente com o fornecedor, uma relação inter-pessoal, assim os  dois entram em acrodo e um negócio é feito");
+        this.listaPerguntas.add(perguntas);
+
 
     }
 
