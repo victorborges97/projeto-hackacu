@@ -50,6 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextTítulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Título" />
@@ -66,9 +67,27 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutTítulo">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextPreco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Preço" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutCidade"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        app:boxBackgroundColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPreco">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextCidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Cidade" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -79,9 +98,10 @@
         app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPreco">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCidade">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextEndereco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Endereço" />
@@ -98,6 +118,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEndereco">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextDescricao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Descrição" />
@@ -114,6 +135,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutDescricao">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextWhatsapp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Whatsapp" />
@@ -130,6 +152,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWhatsapp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextInstagram"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Instagram" />
