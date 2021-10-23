@@ -19,6 +19,10 @@ import androidx.transition.TransitionManager;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f9a8441d900012e5db688f4079abd2096d212fb2
 import br.com.equipe23.divugaacu.Model.Perguntas;
 
 import br.com.equipe23.divugaacu.R;
@@ -26,9 +30,7 @@ import br.com.equipe23.divugaacu.adapter.Adapter;
 
 public class HelpFragment extends Fragment {
 
-    TextView textQ1, textQ2;
-    LinearLayout layoutQ1, layoutQ2;
-    CardView cvq1, cvq2;
+
     private View rootView;
     private RecyclerView recyclerPerguntas;
     private List<Perguntas> listaPerguntas = new ArrayList<>();

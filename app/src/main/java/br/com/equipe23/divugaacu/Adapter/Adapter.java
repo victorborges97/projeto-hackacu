@@ -47,6 +47,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.myViewHolder> {
         holder.resumo.setText(perguntas.getDescricao());
         holder.pergunta.setText(perguntas.getTitulo());
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> f9a8441d900012e5db688f4079abd2096d212fb2
     }
 
     @Override
