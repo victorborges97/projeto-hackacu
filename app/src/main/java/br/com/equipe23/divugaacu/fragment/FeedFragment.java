@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
+import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItem;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
@@ -31,9 +32,10 @@ public class FeedFragment extends Fragment {
     private View rootView;
     private ViewPager viewPager;
     private SmartTabLayout viewPagerTab;
-    FragmentPagerItemAdapter adapter;
+    private FragmentPagerItemAdapter adapter;
+    private FragmentPagerItems pages;
 
-    private ArrayList<Cidade> cidades = new ArrayList<Cidade>();
+    static ArrayList<Cidade> cidades = new ArrayList<Cidade>();
 
     public FeedFragment() {
         // Required empty public constructor
@@ -63,7 +65,6 @@ public class FeedFragment extends Fragment {
         cidades.add(new Cidade("São João da Barra", "1"));
         cidades.add(new Cidade("Campos do Goytacazes", "2"));
 
-
         iniciarComponents();
         initializePageTab();
 
@@ -77,41 +78,16 @@ public class FeedFragment extends Fragment {
     }
 
     private void initializePageTab() {
-        adapter = new FragmentPagerItemAdapter(
-                myContext.getSupportFragmentManager(),
-                FragmentPagerItems.with(myContext.getApplicationContext())
-                        .add("São João da Barra", City.class)
-                        .add("Campos do Goytacazes", City.class)
-                        .create());
+
+        pages = new FragmentPagerItems(rootView.getContext());
+        for (Cidade city : cidades) {
+            pages.add(FragmentPagerItem.of(city.getNome(), City.class));
+        }
+
+        adapter = new FragmentPagerItemAdapter(myContext.getSupportFragmentManager(), pages);
 
         viewPager.setAdapter(adapter);
         viewPagerTab.setViewPager(viewPager);
-
-//        Bundle args1 = new Bundle();
-//        args1.putString("city", "São João da Barra");
-//        adapter.getPage(0).setArguments(args1);
-
-        viewPagerTab.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                Bundle args = new Bundle();
-
-                args.putString("city", adapter.getPageTitle(position).toString());
-                adapter.getPage(position).setArguments(args);
-
-                Toast.makeText(rootView.getContext(), "TESTE"+adapter.getPageTitle(position).toString(), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
     }
 
     private void iniciarComponents() {
