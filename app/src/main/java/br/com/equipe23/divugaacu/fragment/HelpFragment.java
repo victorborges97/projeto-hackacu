@@ -15,14 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.transition.AutoTransition;
 import androidx.transition.TransitionManager;
 
-<<<<<<< HEAD
-=======
+
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.equipe23.divugaacu.Adapter.Adapter;
 import br.com.equipe23.divugaacu.Model.Perguntas;
->>>>>>> 3d78b8d3250f5403e8f8986e4b62b67ca9732939
+
 import br.com.equipe23.divugaacu.R;
 import br.com.equipe23.divugaacu.adapter.Adapter;
 
