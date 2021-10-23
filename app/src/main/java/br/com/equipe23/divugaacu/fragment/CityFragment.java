@@ -15,31 +15,15 @@ import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItem;
 import br.com.equipe23.divugaacu.R;
 
 
-public class City extends Fragment {
+public class CityFragment extends Fragment {
     private static final String ARG_PARAM1 = "city";
     private br.com.equipe23.divugaacu.model.Cidade city;
     private View rootView;
 
     private TextView tvCity;
 
-    public City() {
+    public CityFragment() {
         // Required empty public constructor
-    }
-
-    public static City newInstance(String param1) {
-        City fragment = new City();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            cityName = getArguments().getString(ARG_PARAM1);
-//        }
     }
 
     @Override

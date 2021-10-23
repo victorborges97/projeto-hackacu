@@ -1,4 +1,4 @@
-package br.com.equipe23.divugaacu.Adapter;
+package br.com.equipe23.divugaacu.adapter;
 
 import android.animation.LayoutTransition;
 import android.transition.AutoTransition;
@@ -39,12 +39,17 @@ public class Adapter extends RecyclerView.Adapter<Adapter.myViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
+<<<<<<< HEAD
+        holder.resumo.setText("Resumo Teste");
+        holder.pergunta.setText("Titulo Teste");
+=======
 
         Perguntas perguntas = listaPerguntas.get(position);
         holder.resumo.setText(perguntas.getDescricao());
         holder.pergunta.setText(perguntas.getTitulo());
 
 
+>>>>>>> 3d78b8d3250f5403e8f8986e4b62b67ca9732939
     }
 
     @Override
@@ -84,7 +89,5 @@ public class Adapter extends RecyclerView.Adapter<Adapter.myViewHolder> {
             });
         }
     }
-
-
 
 }

@@ -15,8 +15,8 @@
     <color name="secundary">#FF00406A</color>
     <color name="bg">#FFFFFFFF</color>
 
-    <color name="semdestino1">#FFF3954F</color>
-    <color name="semdestino2">#FFF9D162</color>
+    <color name="Bottomtrue">#FFFFFFFF</color>
+    <color name="Bottomfalse">#B2464545</color>
     <color name="semdestino3">#FF6CC6A3</color>
 
     <color name="whatsapp">#25D366</color>

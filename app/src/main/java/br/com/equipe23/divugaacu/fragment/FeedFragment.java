@@ -5,14 +5,14 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import android.util.ArraySet;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItem;
@@ -20,8 +20,6 @@ import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import br.com.equipe23.divugaacu.R;
 import br.com.equipe23.divugaacu.model.Cidade;
@@ -41,15 +39,6 @@ public class FeedFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static FeedFragment newInstance(String param1, String param2) {
-        FeedFragment fragment = new FeedFragment();
-        Bundle args = new Bundle();
-        // args.putString(ARG_PARAM1, param1);
-
-        // fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,13 +51,28 @@ public class FeedFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         rootView = inflater.inflate(R.layout.fragment_feed, container, false);
-        cidades.add(new Cidade("São João da Barra", "1"));
-        cidades.add(new Cidade("Campos do Goytacazes", "2"));
-
         iniciarComponents();
+        iniciarCidade();
         initializePageTab();
 
+        setHasOptionsMenu(true);
         return rootView;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_toolbar_feed, menu);
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.action_search:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -77,11 +81,17 @@ public class FeedFragment extends Fragment {
         super.onAttach(activity);
     }
 
+    private void iniciarCidade() {
+        cidades.clear();
+        cidades.add(new Cidade("São João da Barra", "1"));
+        cidades.add(new Cidade("Campos do Goytacazes", "2"));
+    }
+
     private void initializePageTab() {
 
         pages = new FragmentPagerItems(rootView.getContext());
         for (Cidade city : cidades) {
-            pages.add(FragmentPagerItem.of(city.getNome(), City.class));
+            pages.add(FragmentPagerItem.of(city.getNome(), CityFragment.class));
         }
 
         adapter = new FragmentPagerItemAdapter(myContext.getSupportFragmentManager(), pages);
