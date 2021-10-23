@@ -6,8 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.transition.AutoTransition;
 import androidx.transition.Transition;
@@ -19,6 +22,8 @@ public class HelpFragment extends Fragment {
 
     TextView detailText;
     LinearLayout layout;
+    CardView cvq1;
+    private View rootView;
 
     public HelpFragment() {
         // Required empty public constructor
@@ -47,27 +52,38 @@ public class HelpFragment extends Fragment {
             ViewGroup container,
             Bundle savedInstanceState
     ) {
-        View rootView = inflater.inflate(R.layout.fragment_help, container, false);
-        iniciarComponentes(rootView);
+        rootView = inflater.inflate(R.layout.fragment_help, container, false);
+        iniciarComponentes();
+
+        cvq1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                expandir();
+            }
+        });
+
         return rootView;
     }
 
-    public void iniciarComponentes(View rootView) {
 
-        detailText = rootView.findViewById(R.id.details);
+    public void iniciarComponentes() {
+
+        detailText = rootView.findViewById(R.id.textDetails);
         layout = rootView.findViewById(R.id.layoutTeste);
         layout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+        cvq1 = rootView.findViewById(R.id.cvq1);
 
 
     }
 
-    public void expandir(View view) {
-        int v = (detailText.getVisibility() == View.GONE) ? View.VISIBLE : View.GONE;
+    public void expandir(){
+        int v = (detailText.getVisibility() == View.GONE)? View.VISIBLE: View.GONE;
 
         TransitionManager.beginDelayedTransition(layout, new AutoTransition());
         detailText.setVisibility(v);
 
 
     }
+
 
 }

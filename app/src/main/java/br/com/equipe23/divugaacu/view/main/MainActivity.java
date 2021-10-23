@@ -80,4 +80,5 @@ public class MainActivity extends BaseActivity {
     void commitFragment(Fragment selectedFragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.fMain, selectedFragment).commit();
     }
+
 }
