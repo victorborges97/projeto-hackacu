@@ -1,4 +1,4 @@
-package br.com.equipe23.divugaacu.model;
+package br.com.equipe23.divugaacu.Model;
 
 public class Perguntas {
     private String titulo;
@@ -7,6 +7,9 @@ public class Perguntas {
     public Perguntas(String titulo, String descricao) {
         this.titulo = titulo;
         this.descricao = descricao;
+    }
+
+    public Perguntas() {
     }
 
     public String getTitulo() {

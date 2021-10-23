@@ -13,11 +13,11 @@ import androidx.fragment.app.Fragment;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItem;
 
 import br.com.equipe23.divugaacu.R;
-import br.com.equipe23.divugaacu.model.Cidade;
+
 
 public class City extends Fragment {
     private static final String ARG_PARAM1 = "city";
-    private Cidade city;
+    private br.com.equipe23.divugaacu.model.Cidade city;
     private View rootView;
 
     private TextView tvCity;
