@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewPerfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageViewFotoPerfilDetalhes"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/avatar"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textNomePerfilDetalhes"
+                        style="@style/TextNome"
+                        android:text="Nome negocio"
+                        app:layout_constraintStart_toStartOf="@+id/textProfissaoPerfilDetalhes"
+                        app:layout_constraintTop_toTopOf="@+id/imageViewFotoPerfilDetalhes" />
+
+                    <TextView
+                        android:id="@+id/textProfissaoPerfilDetalhes"
+                        style="@style/TextCargo"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:text="Cargo"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewFotoPerfilDetalhes"
+                        app:layout_constraintTop_toBottomOf="@+id/textNomePerfilDetalhes" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/imageViewProdutoDetalhes"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/avatar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewPerfil" />
+
+            <TextView
+                android:id="@+id/textMiniBioPerfilDetalhes"
+                style="@style/Text"
+                android:layout_margin="8dp"
+                android:justificationMode="inter_word"
+                android:text="@string/lorem_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewProdutoDetalhes" />
+
+            <TextView
+                android:id="@+id/textLocal"
+                style="@style/TextNome"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Localização"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textMiniBioPerfilDetalhes" />
+
+            <TextView
+                android:id="@+id/textRuaDetalhes"
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Rua qualquer"
+                app:layout_constraintEnd_toStartOf="@+id/textBairroDetalhes"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textLocal" />
+
+            <TextView
+                android:id="@+id/textBairroDetalhes"
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Bairro CEHAB"
+                app:layout_constraintEnd_toStartOf="@+id/textNumeroCasaDetalhes"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textRuaDetalhes"
+                app:layout_constraintTop_toBottomOf="@+id/textLocal" />
+
+            <TextView
+                android:id="@+id/textNumeroCasaDetalhes"
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Nª 200"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textBairroDetalhes"
+                app:layout_constraintTop_toBottomOf="@+id/textLocal" />
+
+            <TextView
+                android:id="@+id/textIrParaLocal"
+                style="@style/TextNome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/ic_map"
+                android:text="Ir Para Localização"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textBairroDetalhes" />
+
+            <Button
+                android:id="@+id/buttonWhatsapp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/whatsapp"
+                android:drawableLeft="@drawable/ic_whatsapp"
+                android:text="WHATSAPP"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textIrParaLocal" />
+
+            <Button
+                android:id="@+id/buttonInstagram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/instagram"
+                android:drawableLeft="@drawable/ic_instagram"
+                android:text="iNSTAGRAM"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/textIrParaLocal" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="205dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

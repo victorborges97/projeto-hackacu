@@ -16,9 +16,10 @@ import br.com.equipe23.divugaacu.R;
 
 public class PerfilFragment extends Fragment {
 
-    private TextView textNomePerfil, textProfissaoPerfil, textMiniBioPerfil, textRua, textBairro, textNumero, textIrParaLocal;
-    private Button buttonInstagram, buttonWhatsapp;
-    private ImageView imageViewFotoPerfil;
+    private TextView textViewNomePerfil, textViewTelefonePerfil, textViewCidadePerfil, textViewEnderecoPerfil,
+            textViewNegocioPerfilCardView, textViewRuaPerfilCardView, textViewTelefonePerfilCardView;
+    private ImageView imageViewFotoPerfil, imageViewNegocioPerfilCardView;
+    private Button buttonSairPerfil;
 
     public PerfilFragment() {
         // Required empty public constructor
@@ -51,24 +52,19 @@ public class PerfilFragment extends Fragment {
 
         iniciarComponentes(rootView);
 
-        buttonWhatsapp.setOnClickListener(view -> {
-
-            Log.i("teste","foi");
-        });
-
         return rootView;
     }
 
     private  void iniciarComponentes(View rootView) {
-        textNomePerfil = rootView.findViewById(R.id.textNomePerfil);
-        textProfissaoPerfil = rootView.findViewById(R.id.textProfissaoPerfil);
-        textMiniBioPerfil = rootView.findViewById(R.id.textMiniBioPerfil);
-        textRua = rootView.findViewById(R.id.textRua);
-        textBairro = rootView.findViewById(R.id.textBairro);
-        textNumero = rootView.findViewById(R.id.textNumero);
-        textIrParaLocal = rootView.findViewById(R.id.textIrParaLocal);
-        buttonInstagram = rootView.findViewById(R.id.buttonInstagram);
-        buttonWhatsapp = rootView.findViewById(R.id.buttonWhatsapp);
+        textViewNomePerfil = rootView.findViewById(R.id.textViewNomePerfil);
+        textViewTelefonePerfil = rootView.findViewById(R.id.textViewTelefonePerfil);
+        textViewCidadePerfil = rootView.findViewById(R.id.textViewCidadePerfil);
+        textViewEnderecoPerfil = rootView.findViewById(R.id.textViewEnderecoPerfil);
+        textViewNegocioPerfilCardView = rootView.findViewById(R.id.textViewNegocioPerfilCardView);
+        textViewRuaPerfilCardView = rootView.findViewById(R.id.textViewRuaPerfilCardView);
+        textViewTelefonePerfilCardView = rootView.findViewById(R.id.textViewTelefonePerfilCardView);
         imageViewFotoPerfil = rootView.findViewById(R.id.imageViewFotoPerfil);
+        imageViewNegocioPerfilCardView = rootView.findViewById(R.id.imageViewNegocioPerfilCardView);
+        buttonSairPerfil = rootView.findViewById(R.id.buttonSairPerfil);
     }
 }

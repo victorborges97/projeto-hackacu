@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DivugaAcu">
         <activity
+            android:name=".view.cadastraranuncio.CadastrarAnuncioActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.detalhesanuncio.DetalhesAnuncioActivity"
+            android:exported="true" />
+        <activity
             android:name=".view.main.MainActivity"
             android:exported="true">
             <intent-filter>
