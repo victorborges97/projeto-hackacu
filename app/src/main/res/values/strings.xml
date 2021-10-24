@@ -13,6 +13,13 @@
     <string name="questao_2">Como é feito o cadastro da meu negócio?</string>
     <string name="resposta_2">Após entrar no aplicativo, o usuário terá apenas que clicar no botão de adicionar no topo da tela, assim só é necessário preecher os dados e apertar o botão cadastrar, pronto , Registrado! </string>
 
+    <string name="questao_3">Como encontro o serviço que quero?</string>
+    <string name="resposta_3">Em qualquer uma das telas, na barra em baixo, ao clicar na lupa, será possivel pesquisar qual tipo de serviço o usuário deseja.</string>
+
+    <string name="questao_4">Como escolher outra cidade?</string>
+    <string name="resposta_4">Na pagina principal, apenas arrastando para o lado a cidade já troca.</string>
+
+
 
     <string-array name="cidade">
 

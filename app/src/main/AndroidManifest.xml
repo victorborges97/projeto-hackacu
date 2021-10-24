@@ -10,15 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DivugaAcu">
         <activity
-<<<<<<< HEAD
+
             android:name=".view.cadastraranuncio.CadastrarAnuncioActivity"
             android:exported="true" />
         <activity
             android:name=".view.detalhesanuncio.DetalhesAnuncioActivity"
             android:exported="true" />
         <activity
-=======
->>>>>>> 572b414912e1a03c75236dba17c2145eedda2b18
+
+
             android:name=".view.main.MainActivity"
             android:exported="true">
             <intent-filter>
