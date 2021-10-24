@@ -13,24 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DivugaAcu">
         <activity
-<<<<<<< HEAD
-            android:name=".view.SplashActivity"
-            android:exported="false" />
-        <activity
-=======
->>>>>>> f40927b13e8b8a76d0c4cc7d7db3b7fa92f72590
+
             android:name=".view.CadastrarAnuncioActivity"
             android:exported="false" />
         <activity
             android:name=".view.DetalhesAnuncioActivity"
             android:exported="true" />
         <activity
-<<<<<<< HEAD
-=======
-            android:name=".view.SplashActivity"
-            android:exported="true" />
-        <activity
->>>>>>> f40927b13e8b8a76d0c4cc7d7db3b7fa92f72590
             android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
