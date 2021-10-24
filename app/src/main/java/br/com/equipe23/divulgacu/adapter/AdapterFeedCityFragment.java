@@ -65,6 +65,8 @@ public class AdapterFeedCityFragment extends RecyclerView.Adapter<AdapterFeedCit
             nomeRua = itemView.findViewById(R.id.textViewRuaPerfilCardView);
             telefone = itemView.findViewById(R.id.textViewTelefonePerfilCardView);
             logo = itemView.findViewById(R.id.imageViewNegocioPerfilCardView);
+
+
         }
     }
 

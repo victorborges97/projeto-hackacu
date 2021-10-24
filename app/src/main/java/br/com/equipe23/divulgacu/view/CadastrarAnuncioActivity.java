@@ -47,7 +47,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
     private Spinner spinnerCidade;
     private StorageReference firebaseStorage;
     private Anuncio anuncio;
-    private android.app.AlertDialog dialog;
+    private AlertDialog dialog;
 
     private String[] permissoes = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -61,16 +61,19 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_anuncio);
 
-        iniciarComponentes();
-        carregarDadosSpinner();
-
         firebaseStorage = ConfiguracaoFirebase.getFirebaseStorage();
 
         //validar permissao
         Permissao.validarPermissoes(permissoes, this, 1);
+
+        iniciarComponentes();
+        carregarDadosSpinner();
+
+
     }
 
     public void salvarAnuncio(){
+
         //Salvando imagem no Storage
         for (int i = 0; i < listaFotosRecuperadas.size(); i++){
             String urlImagem = listaFotosRecuperadas.get(i);
@@ -102,7 +105,6 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
                             anuncio.setImagens(listaURLFotos);
                             anuncio.salvar();
 
-                            dialog.dismiss();
                             finish();
                         }
                     }
@@ -117,19 +119,20 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
     }
 
     private Anuncio configurarAnuncio(){
+        String cidade = spinnerCidade.getSelectedItem().toString();
         String seuNegocio = textInputEditTextTítulo.getText().toString();
         String endereco = textInputEditTextEndereco.getText().toString();
         String whatsapp = textInputEditTextWhatsapp.getText().toString();
         String descricao = textInputEditTextDescricao.getText().toString();
         String instagram = textInputEditTextInstagram.getText().toString();
-        String cidade = spinnerCidade.getSelectedItem().toString();
+
 
         Endereco ende = new Endereco();
         ende.setRua(endereco);
 
         Anuncio anuncio = new Anuncio();
-        anuncio.setDescricao(descricao);
         anuncio.setCidade(cidade);
+        anuncio.setDescricao(descricao);
         anuncio.setWhatsapp(whatsapp);
         anuncio.setInstagram(instagram);
         anuncio.setEndereco(ende);
@@ -142,16 +145,12 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         anuncio = configurarAnuncio();
 
         if (listaFotosRecuperadas.size() != 0){
-            if (anuncio.getCidade().isEmpty()){
+            if (!anuncio.getCidade().isEmpty()){
                 if (!anuncio.getNomeEmpresa().isEmpty()){
-                    if (anuncio.getEndereco().getRua().isEmpty() || anuncio.getEndereco().getCidade().isEmpty() || anuncio.getEndereco().getBairro().isEmpty() || anuncio.getEndereco().getNumero().isEmpty()){
-                        if (anuncio.getDescricao().isEmpty()){
-                            if (anuncio.getWhatsapp().isEmpty() && anuncio.getWhatsapp().length() >= 10){
-                                if (anuncio.getInstagram().isEmpty()){
-                                    salvarAnuncio();
-                                }else {
-                                    exibirMensagemErro("Digite seu instagram");
-                                }
+                    if (!anuncio.getEndereco().getRua().isEmpty() || anuncio.getEndereco().getCidade().isEmpty() || anuncio.getEndereco().getBairro().isEmpty() || anuncio.getEndereco().getNumero().isEmpty()){
+                        if (!anuncio.getDescricao().isEmpty()){
+                            if (!anuncio.getWhatsapp().isEmpty() && anuncio.getWhatsapp().length() >= 10){
+                                salvarAnuncio();
                             }else {
                                 exibirMensagemErro("Digite o número do Whatsapp");
                             }
@@ -268,6 +267,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
 
 
 
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -291,8 +291,10 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
             }
         });
         AlertDialog dialog = builder.create();
-        dialog.show();
+        //dialog.show();
     }
+
+
 
 
 
