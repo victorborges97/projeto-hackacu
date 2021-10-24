@@ -47,6 +47,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage'
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
 
+    implementation 'com.synnapps:carouselview:0.1.5'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 
 
     // Libary de tablayout
