@@ -5,7 +5,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -116,6 +118,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         startActivityForResult(i, requestCode);
     }
 
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -172,5 +175,31 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         adapterCidade.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCidade.setAdapter(adapterCidade);
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        for (int permissaoResultado : grantResults){
+            if (permissaoResultado == PackageManager.PERMISSION_DENIED){
+                alertaValidacaoPermissao();
+            }
+        }
+    }
+
+    private void alertaValidacaoPermissao(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Permissões Negadas");
+        builder.setMessage("Para utilizar o app é necessários aceitar as permissões");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
