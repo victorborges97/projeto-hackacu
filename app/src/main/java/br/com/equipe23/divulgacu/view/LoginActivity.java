@@ -105,7 +105,10 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.i("Resultado", "signInWithCredential in Firebase:success");
                             firebaseUser = mAuth.getCurrentUser();
-                            updateUI(firebaseUser);
+                            if(firebaseUser != null){
+                                verificarEmpresaUsuario(firebaseUser.getUid());
+                            }
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.i("Resultado", "signInWithCredential in Firebase:failure", task.getException());
@@ -117,37 +120,31 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser firebaseUser) {
         if(firebaseUser != null){
-            if(verificarEmpresaUsuario(firebaseUser.getUid())){
-                startActivity(new Intent(this, MainActivity.class));
-                finish();
-            } else {
-                Toast.makeText(this,"Usuário logado no app com sucesso", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(this, CadastrarAnuncioActivity.class));
-                finish();
-            }
+            Toast.makeText(this,"Usuário logado no app com sucesso", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(this, CadastrarAnuncioActivity.class));
+            finish();
         }
     }
 
-    private Boolean verificarEmpresaUsuario(String id) {
-        final Boolean[] resp = new Boolean[1];
+    private void verificarEmpresaUsuario(String id) {
         Firebase.getAnuncioUsuario(id)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         Anuncio anuncio = snapshot.getValue(Anuncio.class);
                         if(anuncio != null){
-                            if(!anuncio.getNomeEmpresa().isEmpty()){
-                                resp[0] = true;
-                            }
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            finish();
+                        } else {
+                            Toast.makeText(getApplicationContext(),"Usuário logado no app com sucesso", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(getApplicationContext(), CadastrarAnuncioActivity.class));
+                            finish();
                         }
-                        resp[0] = false;
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        resp[0] = false;
                     }
                 });
-        return resp[0];
     }
 }
