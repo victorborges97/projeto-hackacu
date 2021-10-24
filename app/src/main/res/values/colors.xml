@@ -13,7 +13,11 @@
 
     <color name="primary">#38BD95</color>
     <color name="secundary">#FF00406A</color>
+
+    <color name="color_text">#464545</color>
+
     <color name="bg">#FFFFFFFF</color>
+    <color name="card_bg_anuncios">#23464545</color>
 
     <color name="Bottomtrue">#FFFFFFFF</color>
     <color name="Bottomfalse">#B2464545</color>

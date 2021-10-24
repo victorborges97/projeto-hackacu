@@ -36,7 +36,6 @@ public class HelpFragment extends Fragment {
         AdapterHelpFragment adapterPerguntas = new AdapterHelpFragment(listaPerguntas);
 
         //Configurar RecyclerView
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerPerguntas.setLayoutManager(layoutManager);
         recyclerPerguntas.setHasFixedSize(true);

@@ -22,4 +22,11 @@
         <item name="android:textSize">16sp</item>
         <item name="textFillColor">@color/black</item>
     </style>
+
+    <style name="TextCardAnuncio">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="textFillColor">@color/color_text</item>
+    </style>
 </resources>
