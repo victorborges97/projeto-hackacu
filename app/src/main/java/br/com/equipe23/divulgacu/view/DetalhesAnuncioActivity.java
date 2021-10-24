@@ -1,31 +1,29 @@
 package br.com.equipe23.divulgacu.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.helper.widget.Carousel;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
-import java.text.NumberFormat;
-
 import br.com.equipe23.divulgacu.R;
-import br.com.equipe23.divulgacu.fragment.CityFragment;
+import br.com.equipe23.divulgacu.base.BaseActivity;
+import br.com.equipe23.divulgacu.config.Shared;
 import br.com.equipe23.divulgacu.model.Anuncio;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class DetalhesAnuncioActivity extends AppCompatActivity {
+public class DetalhesAnuncioActivity extends BaseActivity {
 
     private TextView textNomePerfilDetalhes, textProfissaoPerfilDetalhes, textMiniBioPerfilDetalhes, textRuaDetalhes, textBairroDetalhes, textNumeroCasaDetalhes, textIrParaLocal;
     private Button buttonInstagram, buttonWhatsapp;
@@ -45,18 +43,32 @@ public class DetalhesAnuncioActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
 
-        buttonWhatsapp.setOnClickListener(view -> {
+        //Recuperar anuncio
+        anuncioSelecionado = (Anuncio) getIntent().getParcelableExtra("anuncioSelecionado");
 
+        setDadosAnuncio();
+
+        buttonWhatsapp.setOnClickListener(view -> {
+            if(anuncioSelecionado != null && !anuncioSelecionado.getWhatsapp().isEmpty()){
+                Shared.openWhatsApp(this, anuncioSelecionado.getWhatsapp(), "Testando");
+            } else {
+                this.showToast("WhastApp não cadastrado");
+            }
             Log.i("botao perfil","foi Whatsapp");
         });
 
         buttonInstagram.setOnClickListener(view -> {
+            if(anuncioSelecionado != null && !anuncioSelecionado.getInstagram().isEmpty()){
+                Shared.openInstagram(this, anuncioSelecionado.getInstagram());
+            } else {
+                this.showToast("Instagram não cadastrado");
+            }
             Log.i("botao perfil","foi Instagram");
         });
 
-        //Recuperar anuncio
-        anuncioSelecionado = (Anuncio) getIntent().getParcelableExtra("anuncioSelecionado");
+    }
 
+    private void setDadosAnuncio() {
         if (anuncioSelecionado != null){
             textNomePerfilDetalhes.setText(anuncioSelecionado.getNomeEmpresa());
             textMiniBioPerfilDetalhes.setText(anuncioSelecionado.getDescricao());
@@ -84,7 +96,6 @@ public class DetalhesAnuncioActivity extends AppCompatActivity {
             carouselView.setImageListener(imageListener);
 
         }
-
     }
 
     private  void iniciarComponentes() {
