@@ -1,17 +1,16 @@
 package br.com.equipe23.divulgacu.model;
 
 import com.google.firebase.database.DatabaseReference;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import br.com.equipe23.divulgacu.config.ConfiguracaoFirebase;
 
 public class Anuncio {
     private String idAnuncio;
-    private String nameEmpresa = "";
-    private String preco = "";
-    private String endereco = "";
+    private String nomeEmpresa = "";
+    private String nomeEmpresaPesquisa = "";
+    private String logo = "";
+    private Endereco endereco = new Endereco();
     private String descricao = "";
     private String whatsapp = "";
     private String instagram = "";
@@ -51,7 +50,8 @@ public class Anuncio {
         DatabaseReference anuncioRef = ConfiguracaoFirebase.getFirebaseDatabase()
                 .child("anuncios");
 
-        anuncioRef.child(getIdAnuncio())
+        anuncioRef.child(getCidade())
+                .child(getIdAnuncio())
                 .setValue(this);
     }
 
@@ -63,27 +63,28 @@ public class Anuncio {
         this.idAnuncio = idAnuncio;
     }
 
-    public String getNameEmpresa() {
-        return nameEmpresa;
+    public Anuncio(String nomeEmpresa, String endereco, String whatsapp, String logo){
+        this.nomeEmpresa = nomeEmpresa;
+//        this.endereco = endereco;
+        this.whatsapp = whatsapp;
+        this.logo = logo;
     }
 
-    public void setNameEmpresa(String nameEmpresa) {
-        this.nameEmpresa = nameEmpresa;
+
+    public String getNomeEmpresa() {
+        return nomeEmpresa;
     }
 
-    public String getPreco() {
-        return preco;
+    public void setNomeEmpresa(String nomeEmpresa) {
+        this.nomeEmpresa = nomeEmpresa;
+        this.nomeEmpresaPesquisa = nomeEmpresa.toUpperCase();
     }
 
-    public void setPreco(String preco) {
-        this.preco = preco;
-    }
-
-    public String getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 
@@ -119,13 +120,29 @@ public class Anuncio {
         this.imagens = imagens;
     }
 
+    public String getNomeEmpresaPesquisa() {
+        return nomeEmpresaPesquisa;
+    }
+
+    public void setNomeEmpresaPesquisa(String nomeEmpresaPesquisa) {
+        this.nomeEmpresaPesquisa = nomeEmpresaPesquisa;
+    }
+
     @Override
     public String toString() {
         return "\nAnuncio{" +
-                "nameEmpresa='" + nameEmpresa + '\'' +
+                "nameEmpresa='" + nomeEmpresa + '\'' +
                 ", endereco='" + endereco + '\'' +
                 ", whatsapp='" + whatsapp + '\'' +
                 ", instagram='" + instagram + '\'' +
                 '}';
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 }

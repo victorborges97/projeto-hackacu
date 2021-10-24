@@ -11,6 +11,7 @@ import br.com.equipe23.divulgacu.base.BaseActivity;
 import br.com.equipe23.divulgacu.fragment.FeedFragment;
 import br.com.equipe23.divulgacu.fragment.HelpFragment;
 import br.com.equipe23.divulgacu.fragment.PerfilFragment;
+import br.com.equipe23.divulgacu.fragment.PesquisaFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -45,6 +46,9 @@ public class MainActivity extends BaseActivity {
                         return true;
                     case R.id.help:
                         commitFragment("Ajuda", true, new HelpFragment());
+                        return true;
+                    case R.id.search:
+                        commitFragment("Pesquisa", true, new PesquisaFragment());
                         return true;
                 }
                 return false;
