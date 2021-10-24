@@ -10,15 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DivugaAcu">
         <activity
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9dbf1aff853cda5f4181834e57d3fd4e809ad8a1
             android:name=".view.cadastraranuncio.CadastrarAnuncioActivity"
             android:exported="true" />
         <activity
             android:name=".view.detalhesanuncio.DetalhesAnuncioActivity"
             android:exported="true" />
         <activity
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 9dbf1aff853cda5f4181834e57d3fd4e809ad8a1
             android:name=".view.main.MainActivity"
             android:exported="true">
             <intent-filter>
@@ -27,12 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.detalhesanuncio.DetalhesAnuncioActivity"
-            android:exported="true" />
-        <activity
-            android:name=".view.cadastraranuncio.CadastrarAnuncioActivity"
-            android:exported="true"/>
     </application>
 
 </manifest>

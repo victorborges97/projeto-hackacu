@@ -64,6 +64,7 @@ public class FeedFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.action_search:
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -89,7 +90,7 @@ public class FeedFragment extends Fragment {
             pages.add(FragmentPagerItem.of(city.getNome(), CityFragment.class));
         }
 
-        adapter = new FragmentPagerItemAdapter(myContext.getSupportFragmentManager(), pages);
+        adapter = new FragmentPagerItemAdapter(getChildFragmentManager(), pages);
 
         viewPager.setAdapter(adapter);
         viewPagerTab.setViewPager(viewPager);
