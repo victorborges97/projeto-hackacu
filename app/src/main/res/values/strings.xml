@@ -18,7 +18,13 @@
 
     <string name="questao_4">Como escolher outra cidade?</string>
     <string name="resposta_4">Na pagina principal, apenas arrastando para o lado a cidade já troca.</string>
-
+    <string name="teste_resposta1">Após entrar no aplicativo, o usuário terá apenas que clicar no botão de adicionar no topo da tela, assim só é necessário preecher os dados e apertar o botão cadastrar, pronto, Registrado!</string>
+    <string name="d_p1">Clicando no botão do WhatsApp, você entrará diretamente em contato com o fornecedor, podendo falar diretamente com ele para realizar seu negócio.</string>
+    <string name="r_p3">Em qualquer uma das telas, na barra em baixo, ao clicar na lupa, será possivel pesquisar qual tipo de serviço o usuário deseja.</string>
+    <string name="d_p4">Na pagina principal, apenas arrastando para o lado a cidade já troca.</string>
+    <string name="d_p5">Na barra em baixo, ao apertar no icone da pessoa, a aba de usuários é aberta, onde tem todas suas informações da sua conta.</string>
+    <string name="d_p6">Da forma mais simples possivel, o cliente procura o serviço que deseja e assim começa sua negociação, diretamente com o fornecedor, uma relação inter-pessoal, assim os  dois entram em acrodo e um negócio é feito</string>
+    <string name="d_p7">Na barra em baixo, ao apertar no icone da pessoa, a aba de usuários é aberta, onde tem todas suas informações da sua conta.</string>
 
 
     <string-array name="cidade">
