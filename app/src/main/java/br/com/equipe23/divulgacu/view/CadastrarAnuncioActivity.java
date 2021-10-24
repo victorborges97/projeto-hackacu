@@ -2,10 +2,14 @@ package br.com.equipe23.divulgacu.view;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -27,6 +31,9 @@ import java.util.List;
 
 import br.com.equipe23.divulgacu.R;
 import br.com.equipe23.divulgacu.config.ConfiguracaoFirebase;
+import br.com.equipe23.divulgacu.config.Permissao;
+import br.com.equipe23.divulgacu.model.Anuncio;
+import br.com.equipe23.divulgacu.model.Endereco;
 
 public class CadastrarAnuncioActivity extends AppCompatActivity {
 
@@ -38,6 +45,13 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
     private List<String> listaURLFotos = new ArrayList<>();
     private Spinner spinnerCidade;
     private StorageReference firebaseStorage;
+    private Anuncio anuncio;
+    private android.app.AlertDialog dialog;
+
+    private String[] permissoes = new String[]{
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA
+    };
 
 
 
@@ -50,6 +64,9 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         carregarDadosSpinner();
 
         firebaseStorage = ConfiguracaoFirebase.getFirebaseStorage();
+
+        //validar permissao
+        Permissao.validarPermissoes(permissoes, this, 1);
     }
 
     public void salvarAnuncio(){
@@ -78,7 +95,8 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
 
                         listaURLFotos.add(urlConvertida);
                         if (totalFotos == listaURLFotos.size()){
-
+                            anuncio.setImagens(listaURLFotos);
+                            anuncio.salvar();
                         }
                     }
                 });
@@ -89,6 +107,63 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
                 exibirMensagemErro("Falha ao fazer upload");
             }
         });
+    }
+
+    private Anuncio configurarAnuncio(){
+        String seuNegocio = textInputEditTextTítulo.getText().toString();
+        String endereco = textInputEditTextEndereco.getText().toString();
+        String whatsapp = textInputEditTextWhatsapp.getText().toString();
+        String descricao = textInputEditTextDescricao.getText().toString();
+        String instagram = textInputEditTextInstagram.getText().toString();
+        String cidade = spinnerCidade.getSelectedItem().toString();
+
+        Endereco ende = new Endereco();
+        ende.setRua(endereco);
+
+        Anuncio anuncio = new Anuncio();
+        anuncio.setDescricao(descricao);
+        anuncio.setCidade(cidade);
+        anuncio.setWhatsapp(whatsapp);
+        anuncio.setInstagram(instagram);
+        anuncio.setEndereco(ende);
+        anuncio.setNameEmpresa(seuNegocio);
+
+        return anuncio;
+    }
+
+    public void validarDadosAnuncio(){
+        anuncio = configurarAnuncio();
+
+        if (listaFotosRecuperadas.size() != 0){
+            if (anuncio.getCidade().isEmpty()){
+                if (!anuncio.getNameEmpresa().isEmpty()){
+                    if (anuncio.getEndereco().getRua().isEmpty() || anuncio.getEndereco().getCidade().isEmpty() || anuncio.getEndereco().getBairro().isEmpty() || anuncio.getEndereco().getNumero().isEmpty()){
+                        if (anuncio.getDescricao().isEmpty()){
+                            if (anuncio.getWhatsapp().isEmpty()){
+                                if (anuncio.getInstagram().isEmpty()){
+                                    salvarAnuncio();
+                                }else {
+                                    exibirMensagemErro("Digite seu instagram");
+                                }
+                            }else {
+                                exibirMensagemErro("Digite o número do Whatsapp");
+                            }
+                        }else {
+                            exibirMensagemErro("Digite uma descriçao");
+                        }
+                    }else {
+                        exibirMensagemErro("Digite o endereço completo");
+                    }
+                }else {
+                    exibirMensagemErro("Digite o título do anúncio");
+                }
+            }else {
+                exibirMensagemErro("Selecione a cidade");
+            }
+        }else {
+            exibirMensagemErro("Escolha pelo menos uma foto");
+        }
+
     }
 
     public void OnClikImagem(View view){
@@ -116,6 +191,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         startActivityForResult(i, requestCode);
     }
 
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -164,6 +240,13 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         imagem2.setOnClickListener(this::OnClikImagem);
         imagem3.setOnClickListener(this::OnClikImagem);
         imagem4.setOnClickListener(this::OnClikImagem);
+
+        buttonCadastrarAnuncio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                validarDadosAnuncio();
+            }
+        });
     }
 
     private void carregarDadosSpinner(){
@@ -173,4 +256,33 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         spinnerCidade.setAdapter(adapterCidade);
 
     }
+
+    private void alertaValidacaoPermissao(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Aceitar Permissões");
+        builder.setMessage("Para poder enviar ou tirar fotos, é necessário aceitar as permissões");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        for (int permissaoResultado : grantResults){
+            if (permissaoResultado == PackageManager.PERMISSION_DENIED){
+                alertaValidacaoPermissao();
+            }
+        }
+    }
+
+
+
 }
