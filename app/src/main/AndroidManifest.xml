@@ -16,13 +16,13 @@
             android:name=".view.CadastrarAnuncioActivity"
             android:exported="false" />
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".view.DetalhesAnuncioActivity"
             android:exported="true" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".view.MainActivity"
             android:exported="true" />
         <activity
             android:name=".view.SplashActivity"
