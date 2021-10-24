@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import br.com.equipe23.divulgacu.R;
@@ -39,12 +41,12 @@ public class AdapterPesquisa extends RecyclerView.Adapter<AdapterPesquisa.MyView
         holder.nome.setText(anuncio.getNomeEmpresa());
         holder.foto.setImageResource(R.drawable.avatar);
 
-       /* if (anuncio.getLogo() != "") {
-            Uri uri = Uri.parse(anuncio.getId());
-            Glide.with(context).load(uri).into(holder.foto);
+        if (!anuncio.getLogo().equals("")) {
+            Uri uri = Uri.parse(anuncio.getLogo());
+            Glide.with(holder.itemView.getContext()).load(uri).into(holder.foto);
         }else {
             holder.foto.setImageResource(R.drawable.avatar);
-        }*/
+        }
     }
 
     @Override

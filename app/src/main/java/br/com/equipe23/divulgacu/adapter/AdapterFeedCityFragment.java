@@ -1,5 +1,6 @@
 package br.com.equipe23.divulgacu.adapter;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 import br.com.equipe23.divulgacu.R;
 import br.com.equipe23.divulgacu.model.Anuncio;
@@ -33,9 +37,16 @@ public class AdapterFeedCityFragment extends RecyclerView.Adapter<AdapterFeedCit
     public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
         Anuncio item = listaAnuncios.get(position);
 
-        holder.nomeEmpresa.setText(item.getNameEmpresa());
+        holder.nomeEmpresa.setText(item.getNomeEmpresa());
         holder.nomeRua.setText(item.getEndereco().getRua());
         holder.telefone.setText(item.getWhatsapp());
+
+        if (!item.getLogo().equals("")) {
+            Uri uri = Uri.parse(item.getLogo());
+            Glide.with(holder.itemView.getContext()).load(uri).into(holder.logo);
+        }else {
+            holder.logo.setImageResource(R.drawable.avatar);
+        }
     }
 
     @Override
