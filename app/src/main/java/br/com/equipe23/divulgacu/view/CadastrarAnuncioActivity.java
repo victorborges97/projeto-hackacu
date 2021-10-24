@@ -149,7 +149,8 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
     public void validarDadosAnuncio(){
         anuncio = configurarAnuncio();
 
-        if (listaFotosRecuperadas.size() != 0){
+        salvarAnuncio();
+     /* if (listaFotosRecuperadas.size() != 0){
             if (!anuncio.getCidade().isEmpty()){
                 if (!anuncio.getNomeEmpresa().isEmpty()){
                     if (!anuncio.getEndereco().getRua().isEmpty() || anuncio.getEndereco().getCidade().isEmpty() || anuncio.getEndereco().getBairro().isEmpty() || anuncio.getEndereco().getNumero().isEmpty()){
@@ -173,7 +174,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
             }
         }else {
             exibirMensagemErro("Escolha pelo menos uma foto");
-        }
+        }*/
 
     }
 
@@ -257,7 +258,10 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         buttonCadastrarAnuncio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validarDadosAnuncio();
+                //validarDadosAnuncio();
+                startActivity(new Intent(getBaseContext(),MainActivity.class));
+                finish();
+
             }
         });
     }

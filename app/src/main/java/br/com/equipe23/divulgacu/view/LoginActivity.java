@@ -113,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser firebaseUser) {
         if(firebaseUser != null){
             Toast.makeText(this,"Usuário logado no app com sucesso", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, CadastrarAnuncioActivity.class));
             finish();
         }
     }

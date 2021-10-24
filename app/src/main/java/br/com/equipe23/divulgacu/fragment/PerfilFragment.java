@@ -60,6 +60,8 @@ public class PerfilFragment extends Fragment {
             public void onClick(View view) {
                 ConfiguracaoFirebase.getFirebaseAutenticacao().signOut();
                 getFragmentManager().popBackStackImmediate();
+
+
             }
         });
 
