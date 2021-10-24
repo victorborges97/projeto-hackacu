@@ -66,7 +66,7 @@ public class Anuncio implements Parcelable {
                 .child("meus_anuncios");
 
         anuncioRef.child(idUsuario)
-                .child(getIdAnuncio())
+                //.child(getIdAnuncio())
                 .setValue(this);
 
         salvarAnuncioPublico();
@@ -78,7 +78,7 @@ public class Anuncio implements Parcelable {
         DatabaseReference anuncioRef = ConfiguracaoFirebase.getFirebaseDatabase()
                 .child("anuncios");
 
-        anuncioRef.child(getCidade())
+        anuncioRef.child(endereco.getCidade())
                 .child(getIdAnuncio())
                 .setValue(this);
     }

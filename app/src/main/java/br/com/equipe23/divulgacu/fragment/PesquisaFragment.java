@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -103,12 +104,11 @@ public class PesquisaFragment extends Fragment {
         listaAnuncios.clear();
 
         if (texto.length() > 2) {
-            Query query = anunciosRef.orderByChild("nomeEmpresaPesquisa").startAt(texto).endAt(texto + "\uf8ff");
+            listaAnuncios.clear();
+            Query query = anunciosRef.child("São João da Barra").orderByChild("nomeEmpresaPesquisa").startAt(texto).endAt(texto + "\uf8ff");
             query.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    listaAnuncios.clear();
-
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         listaAnuncios.add(dataSnapshot.getValue(Anuncio.class));
                     }
@@ -120,6 +120,23 @@ public class PesquisaFragment extends Fragment {
 
                 }
             });
+            Query query2 = anunciosRef.child("Campos do Goytacazes").orderByChild("nomeEmpresaPesquisa").startAt(texto).endAt(texto + "\uf8ff");
+            query2.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        listaAnuncios.add(dataSnapshot.getValue(Anuncio.class));
+                    }
+                    adapterPesquisa.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+            Log.d("ANUNCIOS", listaAnuncios.toString());
         }
     }
 

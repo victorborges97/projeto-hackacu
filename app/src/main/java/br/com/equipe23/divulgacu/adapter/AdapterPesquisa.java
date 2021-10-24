@@ -40,6 +40,7 @@ public class AdapterPesquisa extends RecyclerView.Adapter<AdapterPesquisa.MyView
         Anuncio anuncio = listaAnuncio.get(position);
         holder.nome.setText(anuncio.getNomeEmpresa());
         holder.foto.setImageResource(R.drawable.avatar);
+        holder.cidade.setText(anuncio.getEndereco().getCidade());
 
         if (!anuncio.getLogo().equals("")) {
             Uri uri = Uri.parse(anuncio.getLogo());
@@ -57,13 +58,14 @@ public class AdapterPesquisa extends RecyclerView.Adapter<AdapterPesquisa.MyView
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView foto;
-        TextView nome;
+        TextView nome, cidade;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             foto = itemView.findViewById(R.id.imagePesquisa);
             nome = itemView.findViewById(R.id.textPesquisa);
+            cidade = itemView.findViewById(R.id.textCidade);
         }
     }
 }
