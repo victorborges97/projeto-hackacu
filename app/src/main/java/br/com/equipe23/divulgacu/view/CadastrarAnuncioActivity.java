@@ -31,6 +31,7 @@ import java.util.List;
 
 import br.com.equipe23.divulgacu.R;
 import br.com.equipe23.divulgacu.config.ConfiguracaoFirebase;
+import br.com.equipe23.divulgacu.config.Mask;
 import br.com.equipe23.divulgacu.config.Permissao;
 import br.com.equipe23.divulgacu.model.Anuncio;
 import br.com.equipe23.divulgacu.model.Endereco;
@@ -80,7 +81,10 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
 
     private void salvarFotoSotorage(String urlString, int totalFotos, int contador){
         //Nó do Storage
-        final StorageReference imagemAnuncio = firebaseStorage.child("imagens");
+        final StorageReference imagemAnuncio = firebaseStorage.child("imagens")
+                .child("anuncios")
+                .child(anuncio.getIdAnuncio())
+                .child("imagem" + contador);
 
         //Fazendo upload
         UploadTask uploadTask = imagemAnuncio.putFile(Uri.parse(urlString));
@@ -97,6 +101,9 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
                         if (totalFotos == listaURLFotos.size()){
                             anuncio.setImagens(listaURLFotos);
                             anuncio.salvar();
+
+                            dialog.dismiss();
+                            finish();
                         }
                     }
                 });
@@ -139,7 +146,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
                 if (!anuncio.getNomeEmpresa().isEmpty()){
                     if (anuncio.getEndereco().getRua().isEmpty() || anuncio.getEndereco().getCidade().isEmpty() || anuncio.getEndereco().getBairro().isEmpty() || anuncio.getEndereco().getNumero().isEmpty()){
                         if (anuncio.getDescricao().isEmpty()){
-                            if (anuncio.getWhatsapp().isEmpty()){
+                            if (anuncio.getWhatsapp().isEmpty() && anuncio.getWhatsapp().length() >= 10){
                                 if (anuncio.getInstagram().isEmpty()){
                                     salvarAnuncio();
                                 }else {
@@ -229,6 +236,8 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         buttonCadastrarAnuncio = findViewById(R.id.buttonCadastrarAnuncio);
         spinnerCidade = findViewById(R.id.spinnerCidade);
 
+        textInputEditTextWhatsapp.addTextChangedListener(Mask.insert("(##)#####-####", textInputEditTextWhatsapp));
+
         imagem0 = findViewById(R.id.imageView0);
         imagem1 = findViewById(R.id.imageView1);
         imagem2 = findViewById(R.id.imageView2);
@@ -257,20 +266,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
 
     }
 
-    private void alertaValidacaoPermissao(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Aceitar Permissões");
-        builder.setMessage("Para poder enviar ou tirar fotos, é necessário aceitar as permissões");
-        builder.setCancelable(false);
-        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
 
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -281,6 +277,21 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
                 alertaValidacaoPermissao();
             }
         }
+    }
+
+    private void alertaValidacaoPermissao(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Aceitar Permissões");
+        builder.setMessage("Para poder enviar ou tirar fotos, é necessário aceitar as permissões");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 

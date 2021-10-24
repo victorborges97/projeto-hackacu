@@ -50,7 +50,8 @@ public class Anuncio {
         DatabaseReference anuncioRef = ConfiguracaoFirebase.getFirebaseDatabase()
                 .child("anuncios");
 
-        anuncioRef.child(getIdAnuncio())
+        anuncioRef.child(getCidade())
+                .child(getIdAnuncio())
                 .setValue(this);
     }
 
