@@ -1,6 +1,7 @@
 package br.com.equipe23.divulgacu.config;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -11,6 +12,11 @@ public class ConfiguracaoFirebase {
     private static FirebaseAuth autenticacao;
     private static DatabaseReference firebase;
     private static StorageReference firebaseStorage;
+
+    public static FirebaseUser getUsuario(){
+        FirebaseAuth autenticacao = getFirebaseAutenticacao();
+        return autenticacao.getCurrentUser();
+    }
 
     public static String getIdUsuario(){
         FirebaseAuth autenticacao = getFirebaseAutenticacao();

@@ -8,8 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
+
+import java.text.NumberFormat;
 
 import br.com.equipe23.divulgacu.R;
+import br.com.equipe23.divulgacu.fragment.CityFragment;
+import br.com.equipe23.divulgacu.model.Anuncio;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DetalhesAnuncioActivity extends AppCompatActivity {
@@ -18,6 +23,7 @@ public class DetalhesAnuncioActivity extends AppCompatActivity {
     private Button buttonInstagram, buttonWhatsapp;
     private ImageView imageViewProdutoDetalhes;
     private CircleImageView imageViewFotoPerfilDetalhes;
+    private Anuncio anuncioSelecionado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,9 @@ public class DetalhesAnuncioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detalhes_anuncio);
 
         iniciarComponentes();
+
+        getSupportActionBar().setTitle("Detalhes");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         buttonWhatsapp.setOnClickListener(view -> {
 
@@ -34,11 +43,22 @@ public class DetalhesAnuncioActivity extends AppCompatActivity {
         buttonInstagram.setOnClickListener(view -> {
             Log.i("botao perfil","foi Instagram");
         });
+
+        //Recuperar anuncio
+        anuncioSelecionado = (Anuncio) getIntent().getParcelableExtra("anuncioSelecionado");
+
+        if (anuncioSelecionado != null){
+            textNomePerfilDetalhes.setText(anuncioSelecionado.getNomeEmpresa());
+            textMiniBioPerfilDetalhes.setText(anuncioSelecionado.getDescricao());
+            textRuaDetalhes.setText(anuncioSelecionado.getEndereco().getRua());
+            textBairroDetalhes.setText(anuncioSelecionado.getEndereco().getBairro());
+            textNumeroCasaDetalhes.setText(anuncioSelecionado.getEndereco().getNumero());
+        }
+
     }
 
     private  void iniciarComponentes() {
         textNomePerfilDetalhes = findViewById(R.id.textNomePerfilDetalhes);
-        textProfissaoPerfilDetalhes = findViewById(R.id.textProfissaoPerfilDetalhes);
         textMiniBioPerfilDetalhes = findViewById(R.id.textMiniBioPerfilDetalhes);
         textRuaDetalhes = findViewById(R.id.textRuaDetalhes);
         textBairroDetalhes = findViewById(R.id.textBairroDetalhes);
@@ -48,5 +68,11 @@ public class DetalhesAnuncioActivity extends AppCompatActivity {
         buttonWhatsapp = findViewById(R.id.buttonWhatsapp);
         imageViewFotoPerfilDetalhes = findViewById(R.id.imageViewFotoPerfilDetalhes);
         imageViewProdutoDetalhes = findViewById(R.id.imageViewProdutoDetalhes);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return false;
     }
 }

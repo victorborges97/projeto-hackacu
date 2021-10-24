@@ -24,4 +24,16 @@ public class Firebase {
         }
         return null;
     }
+
+    public static Query getAnuncio(String id) {
+        try {
+            return ConfiguracaoFirebase.getFirebaseDatabase()
+                    .child("anuncios")
+                    .child(id.toString());
+
+        } catch (Exception e){
+            Log.d("ERROR", "ERROR AO PEGAR O ANUNCIO: "+e.getMessage());
+        }
+        return null;
+    }
 }
