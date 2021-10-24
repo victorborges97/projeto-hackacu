@@ -104,71 +104,106 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewEnderecoPerfil" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewPerfil"
-                android:layout_width="0dp"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:id="@+id/cardViewSemAnuncioUser"
+                android:visibility="gone"
+                android:backgroundTint="@color/card_bg_anuncios"
+                android:background="@drawable/radius_8dp"
+                android:foreground="@drawable/ripple"
+                app:cardCornerRadius="5dp"
+                android:clickable="true"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:layout_margin="20dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:elevation="10dp"
+                android:focusable="true"
                 app:layout_constraintBottom_toTopOf="@+id/buttonSairPerfil"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView5">
 
+                <TextView
+                    android:id="@+id/textViewSemAnuncio"
+                    style="@style/TextCardAnuncio"
+                    android:ellipsize="marquee"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="Cadastre-se seu anuncio"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <ImageView
-                        android:id="@+id/imageViewNegocioPerfilCardView"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:src="@drawable/avatar"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:id="@+id/cardViewAnuncioUser"
+                android:visibility="visible"
+                android:backgroundTint="@color/card_bg_anuncios"
+                android:background="@drawable/radius_8dp"
+                android:foreground="@drawable/ripple"
+                app:cardCornerRadius="5dp"
+                android:clickable="true"
+                android:layout_margin="20dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:layout_height="104dp"
+                android:focusable="true"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSairPerfil"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView5">
 
-                    <TextView
-                        android:id="@+id/textViewNegocioPerfilCardView"
-                        style="@style/Text"
-                        android:layout_margin="8dp"
-                        android:gravity="center"
-                        android:text="Caldos e petiscos da vovó"
-                        app:layout_constraintBottom_toTopOf="@+id/textViewRuaPerfilCardView"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewNegocioPerfilCardView"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_chainStyle="packed" />
+                <ImageView
+                    android:id="@+id/imageViewNegocioPerfilCardView"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/avatar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/textViewRuaPerfilCardView"
-                        style="@style/Text"
-                        android:layout_margin="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:gravity="center"
-                        android:text="Coronel Linhares"
-                        app:layout_constraintBottom_toTopOf="@+id/textViewTelefonePerfilCardView"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewNegocioPerfilCardView"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewNegocioPerfilCardView" />
+                <TextView
+                    android:id="@+id/textViewNegocioPerfilCardView"
+                    style="@style/TextCardAnuncio"
+                    android:gravity="center"
+                    android:text="Caldos e petiscos da vovósadasdasd"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewRuaPerfilCardView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewNegocioPerfilCardView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
 
-                    <TextView
-                        android:id="@+id/textViewTelefonePerfilCardView"
-                        style="@style/Text"
-                        android:layout_margin="8dp"
-                        android:gravity="center"
-                        android:text="Tel: (22) 12345678"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewNegocioPerfilCardView"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewRuaPerfilCardView" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/textViewRuaPerfilCardView"
+                    style="@style/TextCardAnuncio"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:text="Coronel Linhares"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewTelefonePerfilCardView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewNegocioPerfilCardView"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewNegocioPerfilCardView" />
 
-            </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/textViewTelefonePerfilCardView"
+                    style="@style/TextCardAnuncio"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:text="Tel: (22) 12345678"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewNegocioPerfilCardView"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewRuaPerfilCardView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
                 android:id="@+id/buttonSairPerfil"

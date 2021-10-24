@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -107,6 +108,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
 
                         listaURLFotos.add(urlConvertida);
                         if (totalFotos == listaURLFotos.size()){
+                            anuncio.setLogo(listaURLFotos.get(0));
                             anuncio.setImagens(listaURLFotos);
                             anuncio.salvar();
 
@@ -134,9 +136,9 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
 
         Endereco ende = new Endereco();
         ende.setRua(endereco);
+        ende.setCidade(cidade);
 
         Anuncio anuncio = new Anuncio();
-        anuncio.setCidade(cidade);
         anuncio.setDescricao(descricao);
         anuncio.setWhatsapp(whatsapp);
         anuncio.setInstagram(instagram);
@@ -149,8 +151,8 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
     public void validarDadosAnuncio(){
         anuncio = configurarAnuncio();
 
-        salvarAnuncio();
-     /* if (listaFotosRecuperadas.size() != 0){
+        //salvarAnuncio();
+     if (listaFotosRecuperadas.size() != 0){
             if (!anuncio.getCidade().isEmpty()){
                 if (!anuncio.getNomeEmpresa().isEmpty()){
                     if (!anuncio.getEndereco().getRua().isEmpty() || anuncio.getEndereco().getCidade().isEmpty() || anuncio.getEndereco().getBairro().isEmpty() || anuncio.getEndereco().getNumero().isEmpty()){
@@ -174,7 +176,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
             }
         }else {
             exibirMensagemErro("Escolha pelo menos uma foto");
-        }*/
+        }
 
     }
 
@@ -209,22 +211,26 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
 
         if (resultCode == Activity.RESULT_OK);{
             //Recuperar imagem
-            Uri imagemSelecionada = data.getData();
-            String caminhoImagem = imagemSelecionada.toString();
+            try {
+                Uri imagemSelecionada = data.getData();
+                String caminhoImagem = imagemSelecionada.toString();
 
-            //Config. imagem no ImageView
-            if (requestCode == 0){
-                imagem0.setImageURI(imagemSelecionada);
-            }else if (requestCode == 1){
-                imagem1.setImageURI(imagemSelecionada);
-            }else if (requestCode == 2){
-                imagem2.setImageURI(imagemSelecionada);
-            }else if (requestCode == 3){
-                imagem3.setImageURI(imagemSelecionada);
-            }else if (requestCode == 4){
-                imagem4.setImageURI(imagemSelecionada);
+                //Config. imagem no ImageView
+                if (requestCode == 0){
+                    imagem0.setImageURI(imagemSelecionada);
+                }else if (requestCode == 1){
+                    imagem1.setImageURI(imagemSelecionada);
+                }else if (requestCode == 2){
+                    imagem2.setImageURI(imagemSelecionada);
+                }else if (requestCode == 3){
+                    imagem3.setImageURI(imagemSelecionada);
+                }else if (requestCode == 4){
+                    imagem4.setImageURI(imagemSelecionada);
+                }
+                listaFotosRecuperadas.add(caminhoImagem);
+            } catch (Exception e) {
+                Log.d("FOTO", "ERROR AO PEGA A FOTO");
             }
-            listaFotosRecuperadas.add(caminhoImagem);
         }
     }
 
@@ -258,7 +264,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         buttonCadastrarAnuncio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //validarDadosAnuncio();
+                validarDadosAnuncio();
                 startActivity(new Intent(getBaseContext(),MainActivity.class));
                 finish();
 

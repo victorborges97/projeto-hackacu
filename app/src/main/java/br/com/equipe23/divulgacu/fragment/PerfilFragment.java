@@ -55,6 +55,8 @@ public class PerfilFragment extends Fragment {
 
         iniciarComponentes(rootView);
 
+
+
         buttonSairPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

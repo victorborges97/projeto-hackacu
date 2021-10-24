@@ -17,8 +17,7 @@ public class Firebase {
         try {
             return ConfiguracaoFirebase.getFirebaseDatabase()
                     .child("anuncios")
-                    .orderByChild("endereco/cidade")
-                    .equalTo(cidade);
+                    .child(cidade);
         } catch (Exception e){
             Log.d("ERROR", "ERROR AO PEGAR OS ANUNCIOS: "+e.getMessage());
         }
