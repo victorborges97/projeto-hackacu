@@ -7,7 +7,7 @@ import br.com.equipe23.divulgacu.config.ConfiguracaoFirebase;
 
 public class Anuncio {
     private String idAnuncio;
-    private String nameEmpresa = "";
+    private String nomeEmpresa = "";
     private String nomeEmpresaPesquisa = "";
     private String logo = "";
     private String preco = "";
@@ -63,21 +63,21 @@ public class Anuncio {
         this.idAnuncio = idAnuncio;
     }
 
-    public Anuncio(String nameEmpresa, String endereco, String whatsapp, String logo){
-        this.nameEmpresa = nameEmpresa;
+    public Anuncio(String nomeEmpresa, String endereco, String whatsapp, String logo){
+        this.nomeEmpresa = nomeEmpresa;
 //        this.endereco = endereco;
         this.whatsapp = whatsapp;
         this.logo = logo;
     }
 
 
-    public String getNameEmpresa() {
-        return nameEmpresa;
+    public String getNomeEmpresa() {
+        return nomeEmpresa;
     }
 
-    public void setNameEmpresa(String nameEmpresa) {
-        this.nameEmpresa = nameEmpresa;
-        this.nomeEmpresaPesquisa = nameEmpresa.toUpperCase();
+    public void setNomeEmpresa(String nomeEmpresa) {
+        this.nomeEmpresa = nomeEmpresa;
+        this.nomeEmpresaPesquisa = nomeEmpresa.toUpperCase();
     }
 
     public String getPreco() {
@@ -139,7 +139,7 @@ public class Anuncio {
     @Override
     public String toString() {
         return "\nAnuncio{" +
-                "nameEmpresa='" + nameEmpresa + '\'' +
+                "nameEmpresa='" + nomeEmpresa + '\'' +
                 ", endereco='" + endereco + '\'' +
                 ", whatsapp='" + whatsapp + '\'' +
                 ", instagram='" + instagram + '\'' +

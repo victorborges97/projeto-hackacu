@@ -126,7 +126,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         anuncio.setWhatsapp(whatsapp);
         anuncio.setInstagram(instagram);
         anuncio.setEndereco(ende);
-        anuncio.setNameEmpresa(seuNegocio);
+        anuncio.setNomeEmpresa(seuNegocio);
 
         return anuncio;
     }
@@ -136,7 +136,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
 
         if (listaFotosRecuperadas.size() != 0){
             if (anuncio.getCidade().isEmpty()){
-                if (!anuncio.getNameEmpresa().isEmpty()){
+                if (!anuncio.getNomeEmpresa().isEmpty()){
                     if (anuncio.getEndereco().getRua().isEmpty() || anuncio.getEndereco().getCidade().isEmpty() || anuncio.getEndereco().getBairro().isEmpty() || anuncio.getEndereco().getNumero().isEmpty()){
                         if (anuncio.getDescricao().isEmpty()){
                             if (anuncio.getWhatsapp().isEmpty()){
