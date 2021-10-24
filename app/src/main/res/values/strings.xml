@@ -7,11 +7,11 @@
 
     <string name="lorem_medium">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
 
-    <string name="questao_1">Como funciona a comunicação cliente/fornecedor?</string>
-    <string name="resposta_1">Da forma mais simples possivel, o cliente procura o serviço que deseja e assim começa sua negociação, diretamente com o fornecedor, uma relação inter-pessoal, assim os  dois entram em acrodo e um negócio é feito</string>
+    <string name="questao_1">Como entar com contato?</string>
+    <string name="resposta_1">Clicando no botão do WhatsApp, você entrará diretamente em contato com o fornecedor, podendo falar diretamente com ele para realizar seu negócio.</string>
 
-    <string name="questao_2">Como funciona a comunicação cliente/fornecedor?</string>
-    <string name="resposta_2">Da forma mais simples possivel, o cliente procura o serviço que deseja e assim começa sua negociação, diretamente com o fornecedor, uma relação inter-pessoal, assim os  dois entram em acrodo e um negócio é feito</string>
+    <string name="questao_2">Como é feito o cadastro da meu negócio?</string>
+    <string name="resposta_2">Após entrar no aplicativo, o usuário terá apenas que clicar no botão de adicionar no topo da tela, assim só é necessário preecher os dados e apertar o botão cadastrar, pronto , Registrado! </string>
 
 
     <string-array name="cidade">

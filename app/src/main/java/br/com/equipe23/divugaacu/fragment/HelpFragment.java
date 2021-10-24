@@ -93,10 +93,10 @@ public class HelpFragment extends Fragment {
 
     public void criarPerguntas(){
 
-        perguntas = new Perguntas("Como funciona a comunicação cliente/fornecedor?", "Da forma mais simples possivel, o cliente procura o serviço que deseja e assim começa sua negociação, diretamente com o fornecedor, uma relação inter-pessoal, assim os  dois entram em acrodo e um negócio é feito");
+        perguntas = new Perguntas("Como entar com contato?", "Clicando no botão do WhatsApp, você entrará diretamente em contato com o fornecedor, podendo falar diretamente com ele para realizar seu negócio.");
         this.listaPerguntas.add(perguntas);
 
-        perguntas = new Perguntas("Como funciona a comunicação cliente/fornecedor?", "Da forma mais simples possivel, o cliente procura o serviço que deseja e assim começa sua negociação, diretamente com o fornecedor, uma relação inter-pessoal, assim os  dois entram em acrodo e um negócio é feito");
+        perguntas = new Perguntas("Como é feito o cadastro da meu negócio?", "Após entrar no aplicativo, o usuário terá apenas que clicar no botão de adicionar no topo da tela, assim só é necessário preecher os dados e apertar o botão cadastrar, pronto, Registrado!");
         this.listaPerguntas.add(perguntas);
 
 
