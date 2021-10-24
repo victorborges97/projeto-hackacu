@@ -27,6 +27,7 @@ import br.com.equipe23.divulgacu.config.ConfiguracaoFirebase;
 import br.com.equipe23.divulgacu.config.Mask;
 import br.com.equipe23.divulgacu.model.Anuncio;
 import br.com.equipe23.divulgacu.repository.Firebase;
+import br.com.equipe23.divulgacu.view.CadastrarAnuncioActivity;
 import br.com.equipe23.divulgacu.view.DetalhesAnuncioActivity;
 
 public class PerfilFragment extends Fragment {
@@ -107,6 +108,15 @@ public class PerfilFragment extends Fragment {
     private void preencherAnuncio(Anuncio anuncio){
         if(anuncio.getNomeEmpresa().isEmpty()){
             cardViewSemAnuncioUser.setVisibility(View.VISIBLE);
+
+            cardViewSemAnuncioUser.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), CadastrarAnuncioActivity.class);
+                    startActivity(intent);
+                }
+            });
+
             cardViewAnuncioUser.setVisibility(View.GONE);
         } else {
             cardViewSemAnuncioUser.setVisibility(View.GONE);
