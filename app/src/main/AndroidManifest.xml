@@ -13,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DivugaAcu">
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".view.CadastrarAnuncioActivity"
             android:exported="false" />
         <activity
-            android:name=".view.CadastrarAnuncioActivity"
+            android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".view.DetalhesAnuncioActivity"

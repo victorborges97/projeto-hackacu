@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import java.text.NumberFormat;
 
@@ -30,6 +31,9 @@ public class DetalhesAnuncioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detalhes_anuncio);
 
         iniciarComponentes();
+
+        getSupportActionBar().setTitle("Detalhes");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         buttonWhatsapp.setOnClickListener(view -> {
 
@@ -64,5 +68,11 @@ public class DetalhesAnuncioActivity extends AppCompatActivity {
         buttonWhatsapp = findViewById(R.id.buttonWhatsapp);
         imageViewFotoPerfilDetalhes = findViewById(R.id.imageViewFotoPerfilDetalhes);
         imageViewProdutoDetalhes = findViewById(R.id.imageViewProdutoDetalhes);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return false;
     }
 }
