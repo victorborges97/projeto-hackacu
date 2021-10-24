@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.equipe23.divulgacu">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DivugaAcu">
+        <activity
+            android:name=".view.MainActivity"
+            android:exported="false" />
         <activity
             android:name=".view.CadastrarAnuncioActivity"
             android:exported="false" />
@@ -22,7 +25,7 @@
             android:name=".view.SplashActivity"
             android:exported="true" />
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
