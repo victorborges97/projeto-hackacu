@@ -12,10 +12,10 @@
         android:id="@+id/imageView5"
         android:layout_width="320dp"
         android:layout_height="300dp"
-        android:layout_marginTop="88dp"
         android:src="@drawable/logo_fundo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="216dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
