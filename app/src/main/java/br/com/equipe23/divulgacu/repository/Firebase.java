@@ -24,10 +24,23 @@ public class Firebase {
         return null;
     }
 
-    public static Query getAnuncio(String id) {
+    public static Query getAnuncio(String cidade, String id) {
         try {
             return ConfiguracaoFirebase.getFirebaseDatabase()
                     .child("anuncios")
+                    .child(cidade)
+                    .child(id.toString());
+
+        } catch (Exception e){
+            Log.d("ERROR", "ERROR AO PEGAR O ANUNCIO: "+e.getMessage());
+        }
+        return null;
+    }
+
+    public static Query getAnuncioUsuario(String id) {
+        try {
+            return ConfiguracaoFirebase.getFirebaseDatabase()
+                    .child("meus_anuncios")
                     .child(id.toString());
 
         } catch (Exception e){

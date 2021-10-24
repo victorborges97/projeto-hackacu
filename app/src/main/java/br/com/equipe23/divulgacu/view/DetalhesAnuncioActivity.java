@@ -3,6 +3,7 @@ package br.com.equipe23.divulgacu.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.helper.widget.Carousel;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -62,6 +63,13 @@ public class DetalhesAnuncioActivity extends AppCompatActivity {
             textRuaDetalhes.setText(anuncioSelecionado.getEndereco().getRua());
             textBairroDetalhes.setText(anuncioSelecionado.getEndereco().getBairro());
             textNumeroCasaDetalhes.setText(anuncioSelecionado.getEndereco().getNumero());
+
+            if (!anuncioSelecionado.getLogo().isEmpty()) {
+                Uri uri = Uri.parse(anuncioSelecionado.getLogo());
+                Glide.with(this).load(uri).into(imageViewFotoPerfilDetalhes);
+            }else {
+                imageViewFotoPerfilDetalhes.setImageResource(R.drawable.unknown);
+            }
 
             ImageListener imageListener = new ImageListener() {
                 @Override

@@ -22,9 +22,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 import br.com.equipe23.divulgacu.R;
 import br.com.equipe23.divulgacu.config.ConfiguracaoFirebase;
+import br.com.equipe23.divulgacu.model.Anuncio;
+import br.com.equipe23.divulgacu.repository.Firebase;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -112,9 +117,37 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser firebaseUser) {
         if(firebaseUser != null){
-            Toast.makeText(this,"Usuário logado no app com sucesso", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(this, CadastrarAnuncioActivity.class));
-            finish();
+            if(verificarEmpresaUsuario(firebaseUser.getUid())){
+                startActivity(new Intent(this, MainActivity.class));
+                finish();
+            } else {
+                Toast.makeText(this,"Usuário logado no app com sucesso", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(this, CadastrarAnuncioActivity.class));
+                finish();
+            }
         }
+    }
+
+    private Boolean verificarEmpresaUsuario(String id) {
+        final Boolean[] resp = new Boolean[1];
+        Firebase.getAnuncioUsuario(id)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Anuncio anuncio = snapshot.getValue(Anuncio.class);
+                        if(anuncio != null){
+                            if(!anuncio.getNomeEmpresa().isEmpty()){
+                                resp[0] = true;
+                            }
+                        }
+                        resp[0] = false;
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        resp[0] = false;
+                    }
+                });
+        return resp[0];
     }
 }

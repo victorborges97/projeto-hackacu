@@ -46,4 +46,8 @@ public class Mask {
         };
     }
 
+    public static String maskString(String s) {
+        return s.replaceFirst("(\\d{2})(\\d{5})(\\d+)", "($1)$2-$3");
+    }
+
 }

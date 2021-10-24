@@ -56,7 +56,7 @@ public class FeedFragment extends Fragment {
     private void iniciarCidade() {
         cidades.clear();
         cidades.add(new Cidade("São João da Barra", "1"));
-        cidades.add(new Cidade("Campos do Goytacazes", "2"));
+        cidades.add(new Cidade("Campos dos Goytacazes", "2"));
     }
 
     private void initializePageTab() {

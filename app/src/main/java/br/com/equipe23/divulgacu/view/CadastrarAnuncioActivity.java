@@ -56,30 +56,21 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
             Manifest.permission.CAMERA
     };
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_anuncio);
-
         getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#464545\">" + "Cadastrar Anúncio" + "</font>"));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
-
         firebaseStorage = ConfiguracaoFirebase.getFirebaseStorage();
-
         //validar permissao
         Permissao.validarPermissoes(permissoes, this, 1);
-
         iniciarComponentes();
         carregarDadosSpinner();
-
-
     }
 
     public void salvarAnuncio(){
-
         //Salvando imagem no Storage
         for (int i = 0; i < listaFotosRecuperadas.size(); i++){
             String urlImagem = listaFotosRecuperadas.get(i);
@@ -112,6 +103,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
                             anuncio.setImagens(listaURLFotos);
                             anuncio.salvar();
 
+                            startActivity(new Intent(getBaseContext(), MainActivity.class));
                             finish();
                         }
                     }
@@ -140,7 +132,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
 
         Anuncio anuncio = new Anuncio();
         anuncio.setDescricao(descricao);
-        anuncio.setWhatsapp(whatsapp);
+        anuncio.setWhatsapp(Mask.unmask(whatsapp));
         anuncio.setInstagram(instagram);
         anuncio.setEndereco(ende);
         anuncio.setNomeEmpresa(seuNegocio);
@@ -153,7 +145,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
 
         //salvarAnuncio();
      if (listaFotosRecuperadas.size() != 0){
-            if (!anuncio.getCidade().isEmpty()){
+            if (!anuncio.getEndereco().getCidade().isEmpty()){
                 if (!anuncio.getNomeEmpresa().isEmpty()){
                     if (!anuncio.getEndereco().getRua().isEmpty() || anuncio.getEndereco().getCidade().isEmpty() || anuncio.getEndereco().getBairro().isEmpty() || anuncio.getEndereco().getNumero().isEmpty()){
                         if (!anuncio.getDescricao().isEmpty()){
@@ -265,8 +257,6 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 validarDadosAnuncio();
-                startActivity(new Intent(getBaseContext(),MainActivity.class));
-                finish();
 
             }
         });

@@ -35,7 +35,6 @@ public class ConfiguracaoFirebase {
             autenticacao = FirebaseAuth.getInstance();
         }
         return autenticacao;
-
     }
 
     public static StorageReference getFirebaseStorage(){

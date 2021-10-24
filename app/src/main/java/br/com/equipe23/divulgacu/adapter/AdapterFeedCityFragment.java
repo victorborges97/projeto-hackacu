@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 import br.com.equipe23.divulgacu.R;
+import br.com.equipe23.divulgacu.config.Mask;
 import br.com.equipe23.divulgacu.model.Anuncio;
 
 public class AdapterFeedCityFragment extends RecyclerView.Adapter<AdapterFeedCityFragment.myViewHolder> {
@@ -39,7 +40,7 @@ public class AdapterFeedCityFragment extends RecyclerView.Adapter<AdapterFeedCit
 
         holder.nomeEmpresa.setText(item.getNomeEmpresa());
         holder.nomeRua.setText(item.getEndereco().getRua());
-        holder.telefone.setText(item.getWhatsapp());
+        holder.telefone.setText(Mask.maskString(item.getWhatsapp()));
 
         if (!item.getLogo().equals("")) {
             Uri uri = Uri.parse(item.getLogo());
@@ -61,7 +62,7 @@ public class AdapterFeedCityFragment extends RecyclerView.Adapter<AdapterFeedCit
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
-            nomeEmpresa = itemView.findViewById(R.id.textViewNegocioPerfilCardView);
+            nomeEmpresa = itemView.findViewById(R.id.textViewNomeEmpresaPerfilCardView);
             nomeRua = itemView.findViewById(R.id.textViewRuaPerfilCardView);
             telefone = itemView.findViewById(R.id.textViewTelefonePerfilCardView);
             logo = itemView.findViewById(R.id.imageViewNegocioPerfilCardView);
