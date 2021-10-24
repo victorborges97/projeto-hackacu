@@ -1,5 +1,6 @@
 package br.com.equipe23.divulgacu.base;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.widget.Toast;
 
@@ -28,6 +29,37 @@ public class BaseActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title);
         builder.setMessage(text);
+
+
+
+        AlertDialog alerta = builder.create();
+        alerta.show();
+    }
+
+    public interface ActionListenerCallback  {
+
+        public void onActionSuccess();
+
+    }
+
+    protected void dialog(String title, String text, ActionListenerCallback callback) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title);
+        builder.setMessage(text);
+        builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if(callback != null) {
+                    callback.onActionSuccess();
+                }
+            }
+        });
         AlertDialog alerta = builder.create();
         alerta.show();
     }

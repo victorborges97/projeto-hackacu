@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import br.com.equipe23.divulgacu.R;
+import br.com.equipe23.divulgacu.config.ConfiguracaoFirebase;
 
 public class PerfilFragment extends Fragment {
 
@@ -53,6 +54,14 @@ public class PerfilFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_perfil, container, false);
 
         iniciarComponentes(rootView);
+
+        buttonSairPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ConfiguracaoFirebase.getFirebaseAutenticacao().signOut();
+                getFragmentManager().popBackStackImmediate();
+            }
+        });
 
         return rootView;
     }
