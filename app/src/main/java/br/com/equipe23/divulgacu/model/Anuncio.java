@@ -1,16 +1,67 @@
 package br.com.equipe23.divulgacu.model;
 
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.ArrayList;
+import java.util.List;
+
+import br.com.equipe23.divulgacu.config.ConfiguracaoFirebase;
 
 public class Anuncio {
+    private String idAnuncio;
     private String nameEmpresa = "";
     private String preco = "";
     private String endereco = "";
     private String descricao = "";
     private String whatsapp = "";
     private String instagram = "";
-    private ArrayList<String> imagens = new ArrayList<>();
+    private String cidade = "";
+    private List<String> imagens = new ArrayList<>();
 
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public Anuncio(){
+        DatabaseReference anuncioRef = ConfiguracaoFirebase.getFirebaseDatabase()
+                .child("meus_anuncios");
+        setIdAnuncio(anuncioRef.push().getKey());
+    }
+
+    public void salvar(){
+
+        String idUsuario = ConfiguracaoFirebase.getIdUsuario();
+        DatabaseReference anuncioRef = ConfiguracaoFirebase.getFirebaseDatabase()
+                .child("meus_anuncios");
+
+        anuncioRef.child(idUsuario)
+                .child(getIdAnuncio())
+                .setValue(this);
+
+        salvarAnuncioPublico();
+    }
+
+    public void salvarAnuncioPublico(){
+
+
+        DatabaseReference anuncioRef = ConfiguracaoFirebase.getFirebaseDatabase()
+                .child("anuncios");
+
+        anuncioRef.child(getIdAnuncio())
+                .setValue(this);
+    }
+
+    public String getIdAnuncio() {
+        return idAnuncio;
+    }
+
+    public void setIdAnuncio(String idAnuncio) {
+        this.idAnuncio = idAnuncio;
+    }
 
     public String getNameEmpresa() {
         return nameEmpresa;
@@ -60,11 +111,11 @@ public class Anuncio {
         this.instagram = instagram;
     }
 
-    public ArrayList<String> getImagens() {
+    public List<String> getImagens() {
         return imagens;
     }
 
-    public void setImagens(ArrayList<String> imagens) {
+    public void setImagens(List<String> imagens) {
         this.imagens = imagens;
     }
 
