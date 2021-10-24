@@ -1,10 +1,12 @@
 package br.com.equipe23.divulgacu.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -21,9 +23,11 @@ import java.util.List;
 import br.com.equipe23.divulgacu.R;
 import br.com.equipe23.divulgacu.adapter.AdapterFeedCityFragment;
 import br.com.equipe23.divulgacu.config.ConfiguracaoFirebase;
+import br.com.equipe23.divulgacu.config.RecyclerItemClickListener;
 import br.com.equipe23.divulgacu.model.Anuncio;
 import br.com.equipe23.divulgacu.model.Cidade;
 import br.com.equipe23.divulgacu.repository.Firebase;
+import br.com.equipe23.divulgacu.view.DetalhesAnuncioActivity;
 
 public class CityFragment extends Fragment {
     private Cidade city;
@@ -71,6 +75,30 @@ public class CityFragment extends Fragment {
         rvCityFragment.setLayoutManager(layoutManager);
         rvCityFragment.setHasFixedSize(true);
         rvCityFragment.setAdapter(adapterCity);
+
+        //Clique
+        rvCityFragment.addOnItemTouchListener(new RecyclerItemClickListener(rootView.getContext(), rvCityFragment, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Anuncio anuncioSelecionado = listaAnuncios.get(position);
+
+                Intent intent = new Intent(getActivity(), DetalhesAnuncioActivity.class);
+                intent.putExtra("anuncioSelecionado", anuncioSelecionado);
+                startActivity(intent);
+
+
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        }));
     }
 
     private void initializeLista() {
@@ -95,51 +123,5 @@ public class CityFragment extends Fragment {
                     }
                 });
 
-//        if(city.getNome().toLowerCase().equals("Campos do Goytacazes".toLowerCase())){
-//            listaAnuncios.add(new Anuncio(
-//                    "Peixaria Lago Azul",
-//                    "Coronel Linhares",
-//                    "(22) 12345678",
-//                    "https://mir-s3-cdn-cf.behance.net/projects/404/3ad70030226797.561919275e644.jpg"
-//            ));
-//            listaAnuncios.add(new Anuncio(
-//                    "Peixaria Lago Azul",
-//                    "Coronel Linhares",
-//                    "(22) 12345678",
-//                    "https://mir-s3-cdn-cf.behance.net/projects/404/3ad70030226797.561919275e644.jpg"
-//            ));
-//        }
-//        else {
-//            listaAnuncios.add(new Anuncio(
-//                    "Peixaria Lago Azul",
-//                    "Coronel Linhares",
-//                    "(22) 12345678",
-//                    "https://mir-s3-cdn-cf.behance.net/projects/404/3ad70030226797.561919275e644.jpg"
-//            ));
-//            listaAnuncios.add(new Anuncio(
-//                    "Peixaria Lago Azul",
-//                    "Coronel Linhares",
-//                    "(22) 12345678",
-//                    "https://mir-s3-cdn-cf.behance.net/projects/404/3ad70030226797.561919275e644.jpg"
-//            ));
-//            listaAnuncios.add(new Anuncio(
-//                    "Peixaria Lago Azul",
-//                    "Coronel Linhares",
-//                    "(22) 12345678",
-//                    "https://mir-s3-cdn-cf.behance.net/projects/404/3ad70030226797.561919275e644.jpg"
-//            ));
-//            listaAnuncios.add(new Anuncio(
-//                    "Peixaria Lago Azul",
-//                    "Coronel Linhares",
-//                    "(22) 12345678",
-//                    "https://mir-s3-cdn-cf.behance.net/projects/404/3ad70030226797.561919275e644.jpg"
-//            ));
-//            listaAnuncios.add(new Anuncio(
-//                    "Peixaria Lago Azul",
-//                    "Coronel Linhares",
-//                    "(22) 12345678",
-//                    "https://mir-s3-cdn-cf.behance.net/projects/404/3ad70030226797.561919275e644.jpg"
-//            ));
-//        }
     }
 }

@@ -1,11 +1,14 @@
 package br.com.equipe23.divulgacu.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.firebase.database.DatabaseReference;
 import java.util.ArrayList;
 import java.util.List;
 import br.com.equipe23.divulgacu.config.ConfiguracaoFirebase;
 
-public class Anuncio {
+public class Anuncio implements Parcelable {
     private String idAnuncio;
     private String nomeEmpresa = "";
     private String nomeEmpresaPesquisa = "";
@@ -16,6 +19,31 @@ public class Anuncio {
     private String instagram = "";
     private String cidade = "";
     private List<String> imagens = new ArrayList<>();
+
+    protected Anuncio(Parcel in) {
+        idAnuncio = in.readString();
+        nomeEmpresa = in.readString();
+        nomeEmpresaPesquisa = in.readString();
+        logo = in.readString();
+        endereco = in.readParcelable(Endereco.class.getClassLoader());
+        descricao = in.readString();
+        whatsapp = in.readString();
+        instagram = in.readString();
+        cidade = in.readString();
+        imagens = in.createStringArrayList();
+    }
+
+    public static final Creator<Anuncio> CREATOR = new Creator<Anuncio>() {
+        @Override
+        public Anuncio createFromParcel(Parcel in) {
+            return new Anuncio(in);
+        }
+
+        @Override
+        public Anuncio[] newArray(int size) {
+            return new Anuncio[size];
+        }
+    };
 
     public String getCidade() {
         return cidade;
@@ -144,5 +172,24 @@ public class Anuncio {
 
     public void setLogo(String logo) {
         this.logo = logo;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(idAnuncio);
+        parcel.writeString(nomeEmpresa);
+        parcel.writeString(nomeEmpresaPesquisa);
+        parcel.writeString(logo);
+        parcel.writeParcelable(endereco, i);
+        parcel.writeString(descricao);
+        parcel.writeString(whatsapp);
+        parcel.writeString(instagram);
+        parcel.writeString(cidade);
+        parcel.writeStringList(imagens);
     }
 }

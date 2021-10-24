@@ -35,18 +35,13 @@
                     <TextView
                         android:id="@+id/textNomePerfilDetalhes"
                         style="@style/TextNome"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="18dp"
                         android:text="Nome negocio"
-                        app:layout_constraintStart_toStartOf="@+id/textProfissaoPerfilDetalhes"
-                        app:layout_constraintTop_toTopOf="@+id/imageViewFotoPerfilDetalhes" />
-
-                    <TextView
-                        android:id="@+id/textProfissaoPerfilDetalhes"
-                        style="@style/TextCargo"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
-                        android:text="Cargo"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFotoPerfilDetalhes"
-                        app:layout_constraintTop_toBottomOf="@+id/textNomePerfilDetalhes" />
+                        app:layout_constraintTop_toTopOf="@+id/imageViewFotoPerfilDetalhes" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -164,7 +159,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="205dp" />
+                app:layout_constraintGuide_percent="0.50121653" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
