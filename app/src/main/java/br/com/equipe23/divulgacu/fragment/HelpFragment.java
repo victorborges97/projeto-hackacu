@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 import br.com.equipe23.divulgacu.R;
-import br.com.equipe23.divulgacu.adapter.Adapter;
+import br.com.equipe23.divulgacu.adapter.AdapterHelpFragment;
 import br.com.equipe23.divulgacu.model.Pergunta;
 
 public class HelpFragment extends Fragment {
@@ -33,7 +33,7 @@ public class HelpFragment extends Fragment {
 
 
         //Configurar adapter
-        Adapter adapterPerguntas = new Adapter(listaPerguntas);
+        AdapterHelpFragment adapterPerguntas = new AdapterHelpFragment(listaPerguntas);
 
         //Configurar RecyclerView
 

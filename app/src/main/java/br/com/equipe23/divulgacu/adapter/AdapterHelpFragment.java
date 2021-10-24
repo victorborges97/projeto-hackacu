@@ -14,10 +14,10 @@ import java.util.List;
 import br.com.equipe23.divulgacu.R;
 import br.com.equipe23.divulgacu.model.Pergunta;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.myViewHolder> {
+public class AdapterHelpFragment extends RecyclerView.Adapter<AdapterHelpFragment.myViewHolder> {
 
     private List<Pergunta> listaPerguntas;
-    public Adapter(List<Pergunta> listaPerguntas) {
+    public AdapterHelpFragment(List<Pergunta> listaPerguntas) {
         this.listaPerguntas = listaPerguntas;
     }
 
