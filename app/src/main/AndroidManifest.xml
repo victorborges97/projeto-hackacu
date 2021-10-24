@@ -11,12 +11,6 @@
         android:theme="@style/Theme.DivugaAcu">
         <activity
             android:name=".view.main.MainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".view.detalhesanuncio.DetalhesAnuncioActivity"
-            android:exported="true" />
-        <activity
-            android:name=".view.cadastraranuncio.CadastrarAnuncioActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.detalhesanuncio.DetalhesAnuncioActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.cadastraranuncio.CadastrarAnuncioActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
