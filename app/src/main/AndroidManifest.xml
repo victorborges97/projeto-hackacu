@@ -22,10 +22,10 @@
             android:name=".view.DetalhesAnuncioActivity"
             android:exported="true" />
         <activity
-            android:name=".view.SplashActivity"
+            android:name=".view.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".view.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
