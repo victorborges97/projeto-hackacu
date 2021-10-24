@@ -2,25 +2,20 @@ package br.com.equipe23.divugaacu.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
-
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItem;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
-
 import java.util.ArrayList;
-
 import br.com.equipe23.divugaacu.R;
 import br.com.equipe23.divugaacu.model.Cidade;
 
@@ -98,6 +93,7 @@ public class FeedFragment extends Fragment {
 
         viewPager.setAdapter(adapter);
         viewPagerTab.setViewPager(viewPager);
+
     }
 
     private void iniciarComponents() {
