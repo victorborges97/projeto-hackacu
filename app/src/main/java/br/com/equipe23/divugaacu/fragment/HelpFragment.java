@@ -9,9 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
+
+import br.com.equipe23.divugaacu.Adapter.Adapter;
 import br.com.equipe23.divugaacu.Model.Perguntas;
 import br.com.equipe23.divugaacu.R;
-import br.com.equipe23.divugaacu.adapter.Adapter;
+
 
 public class HelpFragment extends Fragment {
     private View rootView;

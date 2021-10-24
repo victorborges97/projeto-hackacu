@@ -1,4 +1,4 @@
-package br.com.equipe23.divugaacu.adapter;
+package br.com.equipe23.divugaacu.Adapter;
 
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
