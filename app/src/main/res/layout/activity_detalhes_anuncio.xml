@@ -39,6 +39,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="18dp"
                         android:text="Nome negocio"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageViewFotoPerfilDetalhes"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageViewFotoPerfilDetalhes"
                         app:layout_constraintTop_toTopOf="@+id/imageViewFotoPerfilDetalhes" />
@@ -51,6 +52,7 @@
                 android:id="@+id/carouselView"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:layout_marginTop="8dp"
                 app:fillColor="#FFFFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -83,49 +85,51 @@
             <TextView
                 android:id="@+id/textRuaDetalhes"
                 style="@style/Text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:text="Rua qualquer"
-                app:layout_constraintEnd_toStartOf="@+id/textBairroDetalhes"
-                app:layout_constraintHorizontal_bias="0.5"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textLocal"
                 app:layout_constraintTop_toBottomOf="@+id/textLocal" />
 
             <TextView
                 android:id="@+id/textBairroDetalhes"
                 style="@style/Text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:text="Bairro CEHAB"
-                app:layout_constraintEnd_toStartOf="@+id/textNumeroCasaDetalhes"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textRuaDetalhes"
-                app:layout_constraintTop_toBottomOf="@+id/textLocal" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textLocal"
+                app:layout_constraintTop_toBottomOf="@+id/textNumeroCasaDetalhes" />
 
             <TextView
                 android:id="@+id/textNumeroCasaDetalhes"
                 style="@style/Text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:text="Nª 200"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textBairroDetalhes"
-                app:layout_constraintTop_toBottomOf="@+id/textLocal" />
+                app:layout_constraintStart_toStartOf="@+id/textLocal"
+                app:layout_constraintTop_toBottomOf="@+id/textRuaDetalhes" />
 
             <TextView
                 android:id="@+id/textIrParaLocal"
                 style="@style/TextNome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="18dp"
                 android:drawableLeft="@drawable/ic_map"
                 android:text="Ir Para Localização"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textBairroDetalhes" />
 

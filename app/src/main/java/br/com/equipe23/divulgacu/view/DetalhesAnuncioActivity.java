@@ -60,9 +60,9 @@ public class DetalhesAnuncioActivity extends AppCompatActivity {
         if (anuncioSelecionado != null){
             textNomePerfilDetalhes.setText(anuncioSelecionado.getNomeEmpresa());
             textMiniBioPerfilDetalhes.setText(anuncioSelecionado.getDescricao());
-            textRuaDetalhes.setText(anuncioSelecionado.getEndereco().getRua());
-            textBairroDetalhes.setText(anuncioSelecionado.getEndereco().getBairro());
-            textNumeroCasaDetalhes.setText(anuncioSelecionado.getEndereco().getNumero());
+            textRuaDetalhes.setText("Rua: "+ anuncioSelecionado.getEndereco().getRua());
+            textBairroDetalhes.setText("Bairro: " + anuncioSelecionado.getEndereco().getBairro());
+            textNumeroCasaDetalhes.setText("Número: " + anuncioSelecionado.getEndereco().getNumero());
 
             if (!anuncioSelecionado.getLogo().isEmpty()) {
                 Uri uri = Uri.parse(anuncioSelecionado.getLogo());
