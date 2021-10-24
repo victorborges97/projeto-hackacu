@@ -45,10 +45,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-storage'
-    
+
+
     // Libary de tablayout
     implementation 'com.ogaclejapan.smarttablayout:library:2.0.0@aar'
     implementation 'com.ogaclejapan.smarttablayout:utils-v4:2.0.0@aar'
 
 }
 apply plugin: 'com.google.gms.google-services'
+

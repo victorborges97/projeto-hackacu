@@ -10,7 +10,6 @@ public class Anuncio {
     private String nomeEmpresa = "";
     private String nomeEmpresaPesquisa = "";
     private String logo = "";
-    private String preco = "";
     private Endereco endereco = new Endereco();
     private String descricao = "";
     private String whatsapp = "";
@@ -78,14 +77,6 @@ public class Anuncio {
     public void setNomeEmpresa(String nomeEmpresa) {
         this.nomeEmpresa = nomeEmpresa;
         this.nomeEmpresaPesquisa = nomeEmpresa.toUpperCase();
-    }
-
-    public String getPreco() {
-        return preco;
-    }
-
-    public void setPreco(String preco) {
-        this.preco = preco;
     }
 
     public Endereco getEndereco() {
