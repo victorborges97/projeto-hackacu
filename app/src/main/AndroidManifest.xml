@@ -11,7 +11,7 @@
         android:theme="@style/Theme.DivugaAcu">
 
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.CadastrarAnuncioActivity"
             android:exported="true" />
 
         <activity
@@ -19,7 +19,7 @@
             android:exported="true" />
 
         <activity
-            android:name=".view.CadastrarAnuncioActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
