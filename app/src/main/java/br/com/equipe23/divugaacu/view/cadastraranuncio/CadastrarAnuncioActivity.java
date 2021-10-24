@@ -1,5 +1,6 @@
 package br.com.equipe23.divugaacu.view.cadastraranuncio;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,24 +15,32 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.equipe23.divugaacu.R;
+import br.com.equipe23.divugaacu.config.ConfiguracaoFirebase;
 
 public class CadastrarAnuncioActivity extends AppCompatActivity {
 
     private TextInputEditText textInputEditTextTítulo, textInputEditTextPreco, textInputEditTextCidade, textInputEditTextEndereco, textInputEditTextDescricao,
             textInputEditTextWhatsapp, textInputEditTextInstagram;
-    private AlertDialog dialog;
     private Button buttonCadastrarAnuncio;
     private ImageView imagem0, imagem1, imagem2, imagem3, imagem4;
     private List<String> listaFotosRecuperadas = new ArrayList<>();
     private List<String> listaURLFotos = new ArrayList<>();
     private Spinner spinnerCidade;
+    private StorageReference firebaseStorage;
 
 
 
@@ -42,6 +51,8 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
 
         iniciarComponentes();
         carregarDadosSpinner();
+
+        firebaseStorage = ConfiguracaoFirebase.getFirebaseStorage();
     }
 
     public void salvarAnuncio(){
@@ -55,10 +66,32 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
 
     private void salvarFotoSotorage(String urlString, int totalFotos, int contador){
         //Nó do Storage
-
+        final StorageReference imagemAnuncio = firebaseStorage.child("imagens");
 
         //Fazendo upload
+        UploadTask uploadTask = imagemAnuncio.putFile(Uri.parse(urlString));
+        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                imagemAnuncio.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        Uri firebaseUrl = task.getResult();
+                        String urlConvertida = firebaseUrl.toString();
 
+                        listaURLFotos.add(urlConvertida);
+                        if (totalFotos == listaURLFotos.size()){
+
+                        }
+                    }
+                });
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                exibirMensagemErro("Falha ao fazer upload");
+            }
+        });
     }
 
     public void OnClikImagem(View view){
@@ -108,6 +141,10 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
             }
             listaFotosRecuperadas.add(caminhoImagem);
         }
+    }
+
+    public void exibirMensagemErro(String mensagem){
+        Toast.makeText(CadastrarAnuncioActivity.this, mensagem, Toast.LENGTH_SHORT).show();
     }
 
     public void iniciarComponentes() {
