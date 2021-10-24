@@ -3,6 +3,7 @@ package br.com.equipe23.divulgacu.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -32,8 +33,9 @@ public class DetalhesAnuncioActivity extends AppCompatActivity {
 
         iniciarComponentes();
 
-        getSupportActionBar().setTitle("Detalhes");
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#464545\">" + "Detalhes" + "</font>"));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
 
         buttonWhatsapp.setOnClickListener(view -> {
 

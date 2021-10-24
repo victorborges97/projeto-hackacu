@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Html;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -60,6 +61,10 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_anuncio);
+
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#464545\">" + "Cadastrar Anúncio" + "</font>"));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
 
         firebaseStorage = ConfiguracaoFirebase.getFirebaseStorage();
 
@@ -294,8 +299,9 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         //dialog.show();
     }
 
-
-
-
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return false;
+    }
 }

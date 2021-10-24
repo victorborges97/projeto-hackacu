@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import br.com.equipe23.divulgacu.R;
@@ -50,10 +51,10 @@ public class MainActivity extends BaseActivity {
                         case R.id.feed:
                         commitFragment("", false, new FeedFragment());
                         return true;
-                    case R.id.help:
+                        case R.id.help:
                         commitFragment("Ajuda", true, new HelpFragment());
                         return true;
-                    case R.id.search:
+                        case R.id.search:
                         commitFragment("Pesquisa", true, new PesquisaFragment());
                         return true;
                 }
@@ -64,7 +65,7 @@ public class MainActivity extends BaseActivity {
 
     public void commitFragment(String title, Boolean isTitle, Fragment selectedFragment) {
         if(isTitle){
-            getSupportActionBar().setTitle(title);
+            getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#464545\">" + title + "</font>"));
             setLogo(isTitle);
         } else {
             setLogo(isTitle);
@@ -81,8 +82,8 @@ public class MainActivity extends BaseActivity {
 
     private void mostrarConfirmaLogin() {
         this.dialog(
-                "Cria sua conta",
-                "Voce ainda não tem uma conta no divulgAÇU, deseja criar o seu perfil e anunciar o seu negocio ?",
+                "Cadastrar sua conta",
+                "Você ainda não tem uma conta no DivulgAÇU, deseja criar e anunciar o seu negócio?",
                 () -> {
                     Intent myIntent = new Intent(MainActivity.this, LoginActivity.class);
                     MainActivity.this.startActivity(myIntent);
