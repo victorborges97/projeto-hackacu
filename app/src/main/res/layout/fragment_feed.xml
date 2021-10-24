@@ -27,7 +27,7 @@
             app:stl_indicatorAlwaysInCenter="false"
             app:stl_indicatorWithoutPadding="false"
             app:stl_indicatorInFront="false"
-            app:stl_defaultTabTextColor="#232323"
+            app:stl_defaultTabTextColor="@color/color_text"
             app:stl_defaultTabTextHorizontalPadding="18dp"
             app:stl_dividerColor="@color/gray"
             app:stl_dividerThickness="0dp"
