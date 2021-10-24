@@ -120,7 +120,7 @@ public class PesquisaFragment extends Fragment {
 
                 }
             });
-            Query query2 = anunciosRef.child("Campos do Goytacazes").orderByChild("nomeEmpresaPesquisa").startAt(texto).endAt(texto + "\uf8ff");
+            Query query2 = anunciosRef.child("Campos dos Goytacazes").orderByChild("nomeEmpresaPesquisa").startAt(texto).endAt(texto + "\uf8ff");
             query2.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
