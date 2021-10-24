@@ -13,4 +13,13 @@
     <string name="questao_2">Como funciona a comunicação cliente/fornecedor?</string>
     <string name="resposta_2">Da forma mais simples possivel, o cliente procura o serviço que deseja e assim começa sua negociação, diretamente com o fornecedor, uma relação inter-pessoal, assim os  dois entram em acrodo e um negócio é feito</string>
 
+
+    <string-array name="cidade">
+
+        <item> São João da Barra</item>
+        <item> Campos dos Goytacazes </item>
+
+    </string-array>
+
+
 </resources>

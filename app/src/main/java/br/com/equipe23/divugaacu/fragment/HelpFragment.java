@@ -19,10 +19,7 @@ import androidx.transition.TransitionManager;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> f9a8441d900012e5db688f4079abd2096d212fb2
 import br.com.equipe23.divugaacu.Model.Perguntas;
 
 import br.com.equipe23.divugaacu.R;

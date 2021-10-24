@@ -21,96 +21,66 @@
 
         <ImageView
             android:id="@+id/imageView0"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:srcCompat="@drawable/avatar" />
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            app:srcCompat="@drawable/unknown" />
 
         <ImageView
             android:id="@+id/imageView1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:srcCompat="@drawable/avatar" />
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            app:srcCompat="@drawable/unknown" />
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:srcCompat="@drawable/avatar" />
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            app:srcCompat="@drawable/unknown" />
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:srcCompat="@drawable/avatar" />
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            app:srcCompat="@drawable/unknown" />
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:srcCompat="@drawable/avatar" />
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            app:srcCompat="@drawable/unknown" />
 
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutTítulo"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="18dp"
+        android:layout_marginEnd="32dp"
         app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCidade">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditTextTítulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Título" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutPreco"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        app:boxBackgroundColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutTítulo">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditTextPreco"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Preço" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutCidade"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        app:boxBackgroundColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPreco">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditTextCidade"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Cidade" />
+            android:hint="Seu negócio" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutEndereco"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="18dp"
+        android:layout_marginEnd="32dp"
         app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCidade">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutTítulo">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditTextEndereco"
@@ -121,9 +91,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutDescricao"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="18dp"
+        android:layout_marginEnd="32dp"
         app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -138,9 +110,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutWhatsapp"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="18dp"
+        android:layout_marginEnd="32dp"
         app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -155,9 +129,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutInstagram"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="18dp"
+        android:layout_marginEnd="32dp"
         app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -179,5 +155,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutInstagram" />
+
+    <Spinner
+        android:id="@+id/spinnerCidade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

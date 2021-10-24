@@ -10,8 +10,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -29,6 +31,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
     private ImageView imagem0, imagem1, imagem2, imagem3, imagem4;
     private List<String> listaFotosRecuperadas = new ArrayList<>();
     private List<String> listaURLFotos = new ArrayList<>();
+    private Spinner spinnerCidade;
 
 
 
@@ -38,6 +41,7 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastrar_anuncio);
 
         iniciarComponentes();
+        carregarDadosSpinner();
     }
 
     public void salvarAnuncio(){
@@ -108,13 +112,12 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
 
     public void iniciarComponentes() {
         textInputEditTextTítulo = findViewById(R.id.textInputEditTextTítulo);
-        textInputEditTextPreco = findViewById(R.id.textInputEditTextPreco);
-        textInputEditTextCidade = findViewById(R.id.textInputEditTextCidade);
         textInputEditTextEndereco = findViewById(R.id.textInputEditTextEndereco);
         textInputEditTextDescricao = findViewById(R.id.textInputEditTextDescricao);
         textInputEditTextWhatsapp = findViewById(R.id.textInputEditTextWhatsapp);
         textInputEditTextInstagram = findViewById(R.id.textInputEditTextInstagram);
         buttonCadastrarAnuncio = findViewById(R.id.buttonCadastrarAnuncio);
+        spinnerCidade = findViewById(R.id.spinnerCidade);
 
         imagem0 = findViewById(R.id.imageView0);
         imagem1 = findViewById(R.id.imageView1);
@@ -127,5 +130,13 @@ public class CadastrarAnuncioActivity extends AppCompatActivity {
         imagem2.setOnClickListener(this::OnClikImagem);
         imagem3.setOnClickListener(this::OnClikImagem);
         imagem4.setOnClickListener(this::OnClikImagem);
+    }
+
+    private void carregarDadosSpinner(){
+        String[] cidade = getResources().getStringArray(R.array.cidade);
+        ArrayAdapter<String> adapterCidade = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cidade);
+        adapterCidade.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCidade.setAdapter(adapterCidade);
+
     }
 }
