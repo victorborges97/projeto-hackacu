@@ -75,7 +75,9 @@ public class PerfilFragment extends Fragment {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     meuAnuncio = snapshot.getValue(Anuncio.class);
-                    preencherAnuncio(meuAnuncio);
+                    if(meuAnuncio != null){
+                        preencherAnuncio(meuAnuncio);
+                    }
                 }
 
                 @Override
