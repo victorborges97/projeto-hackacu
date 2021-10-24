@@ -18,13 +18,13 @@
 
     <string name="questao_4">Como escolher outra cidade?</string>
     <string name="resposta_4">Na pagina principal, apenas arrastando para o lado a cidade já troca.</string>
-    <string name="teste_resposta1">Após entrar no aplicativo, o usuário terá apenas que clicar no botão de adicionar no topo da tela, assim só é necessário preecher os dados e apertar o botão cadastrar, pronto, Registrado!</string>
-    <string name="d_p1">Clicando no botão do WhatsApp, você entrará diretamente em contato com o fornecedor, podendo falar diretamente com ele para realizar seu negócio.</string>
-    <string name="r_p3">Em qualquer uma das telas, na barra em baixo, ao clicar na lupa, será possivel pesquisar qual tipo de serviço o usuário deseja.</string>
-    <string name="d_p4">Na pagina principal, apenas arrastando para o lado a cidade já troca.</string>
-    <string name="d_p5">Na barra em baixo, ao apertar no icone da pessoa, a aba de usuários é aberta, onde tem todas suas informações da sua conta.</string>
-    <string name="d_p6">Da forma mais simples possivel, o cliente procura o serviço que deseja e assim começa sua negociação, diretamente com o fornecedor, uma relação inter-pessoal, assim os  dois entram em acrodo e um negócio é feito</string>
-    <string name="d_p7">Na barra em baixo, ao apertar no icone da pessoa, a aba de usuários é aberta, onde tem todas suas informações da sua conta.</string>
+    <string name="teste_resposta1">Caso queira cadastrar seu negócio, você deverá fazer login no aplicativo. Após isso, você irá para uma tela para fazer o cadastro do seu empreendimento. </string>
+    <string name="d_p1">Após clicar no anúncio, clicando no botão do WhatsApp, você poderá entrar diretamente em contato com o negociante, podendo falar diretamente com ele.</string>
+    <string name="r_p3">Na tela principal, procure pela barra na parte de baixo e clique na lupa. Após isso, será possivel pesquisar qual tipo de serviço o usuário deseja.</string>
+    <string name="d_p4">Na tela principal, arraste para a direita ou para esquerda para escolher a cidade, entre Campos dos Goytacazes e São João da Barra.</string>
+    <string name="d_p5">Na tela principal, procure pela barra na parte de baixo e clique na pessoa, a aba de usuário é aberta, onde serão exibidas todas as suas informações.</string>
+    <string name="d_p6">Após encontrar o serviço que deseja e clicar nele, você será direcionado para uma página de detalhes, onde estará disponível um botão para levar à uma conversa com o fornecedor. Assim o negócio poderá ser feito</string>
+    <string name="d_p7">Na tela principal, procure pela barra na parte de baixo e clique na pessoa, a aba de usuário é aberta. Ao rolar a tela para baixo, no fim será possível ver um botão escrito "Sair"</string>
 
 
     <string-array name="cidade">

@@ -51,27 +51,27 @@ public class HelpFragment extends Fragment {
 
     public void criarPerguntas(){
         Pergunta p1 = new Pergunta(
-                "Como entrar com contato?",
+                "Como entrar em contato com o negociante?",
                 getString(R.string.d_p1)
         );
         Pergunta p2 = new Pergunta(
-                "Como é feito o cadastro da meu negócio?",
+                "Como é feito o cadastro do negócio?",
                 getString(R.string.teste_resposta1)
         );
         Pergunta p3 = new Pergunta(
-                "Como encontro o serviço que quero?",
+                "Como encontro o serviço ou produto do qual preciso?",
                 getString(R.string.r_p3)
         );
         Pergunta p4 = new Pergunta(
-                "Como escolher outra cidade?",
+                "Como escolher de qual cidade são os negócios mostrados?",
                 getString(R.string.d_p4)
         );
         Pergunta p5 = new Pergunta(
-                "Como ver ou alterar meu usuário?",
+                "Como ver informações do meu usuário?",
                 getString(R.string.d_p5)
         );
         Pergunta p6 = new Pergunta(
-                "Como funciona a comunicação cliente/fornecedor?",
+                "Como funciona a comunicação entre cliente e fornecedor?",
                 getString(R.string.d_p6)
         );
         Pergunta p7 = new Pergunta(
