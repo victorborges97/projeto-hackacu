@@ -66,10 +66,9 @@ public class DetalhesAnuncioActivity extends BaseActivity {
                 if(!e.getCidade().isEmpty()){
                     endereco = endereco+" - "+ e.getCidade();
                 }
-                Log.d("ENDERECO", endereco);
                 Shared.openMaps(this, endereco);
             } else {
-                this.showToast("WhastApp não cadastrado");
+                this.showToast("Endereço não cadastrado");
             }
             Log.i("botao mapa","foi Maps");
         });
