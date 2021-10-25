@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ import br.com.equipe23.divulgacu.R;
 import br.com.equipe23.divulgacu.base.BaseActivity;
 import br.com.equipe23.divulgacu.config.Shared;
 import br.com.equipe23.divulgacu.model.Anuncio;
+import br.com.equipe23.divulgacu.model.Endereco;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DetalhesAnuncioActivity extends BaseActivity {
@@ -47,6 +49,30 @@ public class DetalhesAnuncioActivity extends BaseActivity {
         anuncioSelecionado = (Anuncio) getIntent().getParcelableExtra("anuncioSelecionado");
 
         setDadosAnuncio();
+
+        textIrParaLocal.setOnClickListener(view -> {
+            if(anuncioSelecionado != null && !anuncioSelecionado.getEndereco().getRua().isEmpty()){
+                Endereco e = anuncioSelecionado.getEndereco();
+                String endereco = "";
+                if(!e.getRua().isEmpty()){
+                    endereco = endereco+e.getRua();
+                }
+                if(!e.getNumero().isEmpty()){
+                    endereco = endereco+", "+ e.getNumero();
+                }
+                if(!e.getBairro().isEmpty()){
+                    endereco = endereco+", "+ e.getBairro();
+                }
+                if(!e.getCidade().isEmpty()){
+                    endereco = endereco+" - "+ e.getCidade();
+                }
+                Log.d("ENDERECO", endereco);
+                Shared.openMaps(this, endereco);
+            } else {
+                this.showToast("WhastApp não cadastrado");
+            }
+            Log.i("botao mapa","foi Maps");
+        });
 
         buttonWhatsapp.setOnClickListener(view -> {
             if(anuncioSelecionado != null && !anuncioSelecionado.getWhatsapp().isEmpty()){

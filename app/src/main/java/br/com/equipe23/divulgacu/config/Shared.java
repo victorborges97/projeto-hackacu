@@ -23,6 +23,18 @@ public class Shared {
         }
     }
 
+    public static void openMaps(Activity acc, String endereco) {
+        try {
+            Uri gmmIntentUri = Uri.parse("geo:0,0?q="+endereco);
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            //set package to "com.google.android.apps.maps" so that only google maps is opened.
+            mapIntent.setPackage("com.google.android.apps.maps");
+            acc.startActivity(mapIntent);
+        } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void openInstagram(Activity acc, String insta) {
         Uri uri = Uri.parse("http://instagram.com/_u/"+insta);
         Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
